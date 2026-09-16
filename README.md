@@ -22,7 +22,7 @@
    - Intelligent schema normalization, deduplication, and hot-reload state injection.
    - Pre-loaded live synced schemes: *PM-AJAY Capital Grant (4.5%)* and *NBCFDC Green Business Loan (4.0%)*.
 
-3. **UX4G GIGW 3.0 Accessibility Suite (by ENGORIO)**:
+3. **ENGORIO GIGW 3.0 Accessibility Suite**:
    - Floating universal accessibility icon docked on the right screen edge with `Ctrl+F2` keyboard trigger.
    - 12 assistive tools (Bigger/Smaller Text, Text Spacing, Line Height, Dyslexia Font, ADHD Focus Spotlight, Saturation, Invert Colors, Link Highlights, Large Cursor, Animation Pauser, Image Hiding).
    - High-contrast, polished Dark Mode (`#0b1120` canvas, inverted emblems, glowing emerald green tags).
@@ -68,7 +68,7 @@ Open [http://localhost:5174](http://localhost:5174) in your browser.
 - **Frontend**: React 18, Vite 8.3, Vanilla CSS Design System
 - **Icons & UI**: Lucide React, Leaflet Maps
 - **Voice AI**: Web Speech API (STT / TTS)
-- **Accessibility**: UX4G Suite by ENGORIO (WCAG 2.1 AAA & GIGW 3.0 compliant)
+- **Accessibility**: ENGORIO Suite (WCAG 2.1 AAA & GIGW 3.0 compliant)
 - **Ingestion**: Asynchronous REST ETL Engine & JSON Schema Normalizer
 
 ---

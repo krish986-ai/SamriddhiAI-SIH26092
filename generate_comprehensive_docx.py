@@ -108,7 +108,7 @@ def create_large_document():
         
         meta = [
             ("Project Lead & Organization", "Team Innovision | Engineered by ENGORIO"),
-            ("Design Alignment", "myScheme.gov.in Official UX4G Design System (GIGW 3.0 Compliant)"),
+            ("Design Alignment", "myScheme.gov.in Official ENGORIO Design System (GIGW 3.0 Compliant)"),
             ("Target Beneficiaries", "SC, ST, OBC, Women, De-Notified Tribes, Safai Karamcharis, Artisans"),
             ("Supported Central Apex Corps", "NSFDC, NBCFDC, NSKFDC, NSTFDC, Stand-Up India, PMEGP, PM-AJAY"),
             ("Report Classification", "Comprehensive Technical Specification & National Deployment Blueprint")
@@ -214,7 +214,7 @@ def create_large_document():
         ("Chapter 4: SamriddhiAI Architectural Design & Technology Stack", "20"),
         ("Chapter 5: Deterministic AI Triage Engine & Algorithmic Formulations", "26"),
         ("Chapter 6: Automated Government Scheme Ingestion Pipeline", "32"),
-        ("Chapter 7: UX4G Accessibility Suite (GIGW 3.0 by ENGORIO)", "38"),
+        ("Chapter 7: ENGORIO Accessibility Suite (GIGW 3.0 Compliant)", "38"),
         ("Chapter 8: Comprehensive National Scheme Catalogue (Central & State)", "44"),
         ("Chapter 9: State Channelizing Agency (SCA) Directory (36 States & UTs)", "52"),
         ("Chapter 10: State Partner Portal, Officer Verification & Triage Operations", "58"),
@@ -265,7 +265,7 @@ def create_large_document():
         ("Sub-300ms Deterministic AI Triage Engine", "A high-precision rule evaluation engine that computes multi-variable citizen profiles across social caste categories, annual household income limits, gender, age, project budget, and geographical state jurisdictions without LLM hallucinations."),
         ("Automated Official Government Scheme Ingestion", "An automated background synchronization engine (GovernmentSchemeSyncEngine) that regularly polls official portals (data.gov.in, api.myscheme.gov.in) to ingest, normalize, and hot-reload newly announced schemes without server downtime."),
         ("Multilingual SchemeMitra AI Assistant", "An intelligent floating conversational assistant supporting Web Speech Voice Recognition (STT) and Natural Speech Synthesis (TTS) in English, Hindi, Marathi, and Tamil to bridge rural literacy gaps."),
-        ("UX4G GIGW 3.0 Accessibility Suite (by ENGORIO)", "A complete 12-tool accessibility overlay offering ADHD spotlight masks, Dyslexia-friendly typography, 4-stage line spacing, high-contrast dark mode, and Ctrl+F2 keyboard shortcuts."),
+        ("ENGORIO GIGW 3.0 Accessibility Suite", "A complete 12-tool accessibility overlay offering ADHD spotlight masks, Dyslexia-friendly typography, 4-stage line spacing, high-contrast dark mode, and Ctrl+F2 keyboard shortcuts."),
         ("Direct State Channelizing Agency (SCA) Dispatch", "An interactive geo-spatial locator and officer verification dashboard enabling 1-click application payload dispatch directly to district nodal officers across 36 States and Union Territories.")
     ]
     for title, desc in objectives:
@@ -355,7 +355,7 @@ def create_large_document():
              "• Styling & Design System: Vanilla CSS custom tokens adhering strictly to myScheme.gov.in color palettes, typography (Plus Jakarta Sans, Inter), and micro-animations.\n"
              "• Voice AI Engine: Web Speech API (SpeechRecognition + SpeechSynthesis) with polyfills for vernacular speech processing across Hindi, Marathi, and Tamil.\n"
              "• Ingestion Worker: Node.js / ES6 asynchronous REST pipeline with schema normalization and local storage persistence.\n"
-             "• Accessibility Core: UX4G GIGW 3.0 assistive engine engineered by ENGORIO.")
+             "• Accessibility Core: ENGORIO GIGW 3.0 assistive engine.")
 
     add_heading_2("4.2 End-to-End Data Pipeline Flow")
     add_body("1. User Profile Formulation: The citizen inputs demographic details (caste, income, gender, age, state, sector, loan required) or speaks their requirements to SchemeMitra AI.\n"
@@ -417,11 +417,11 @@ def create_large_document():
     # ----------------------------------------------------
     # CHAPTER 7
     # ----------------------------------------------------
-    add_heading_1("Chapter 7: UX4G Accessibility Suite (Engineered by ENGORIO)")
+    add_heading_1("Chapter 7: ENGORIO Accessibility Suite (GIGW 3.0 Compliant)")
     add_heading_2("7.1 GIGW 3.0 & WCAG 2.1 AAA Compliance")
     add_body("In compliance with the Guidelines for Indian Government Websites (GIGW 3.0) and the Rights of Persons with Disabilities Act, 2016, SamriddhiAI features an integrated 12-tool accessibility modal engineered by ENGORIO.")
 
-    add_body("The UX4G Accessibility Modal incorporates 12 specialized assistive tools in a 3×4 grid:")
+    add_body("The ENGORIO Accessibility Modal incorporates 12 specialized assistive tools in a 3×4 grid:")
     
     tools = [
         ("1. Bigger Text & 2. Smaller Text", "Dynamic font scaling from 80% to 130% across all headings, cards, and data tables without layout breakage."),
@@ -557,3 +557,4 @@ def create_large_document():
 
 if __name__ == "__main__":
     create_large_document()
+

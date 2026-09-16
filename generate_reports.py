@@ -9,7 +9,7 @@ def create_reports():
 ## AI-Driven Government Scheme Matching, Financial Triage & Channel Partner Dispatch Platform
 **Smart India Hackathon (SIH 2026) | Problem Statement: SIH26092**  
 **Ministry / Organization:** Ministry of Social Justice and Empowerment (MoSJE), Government of India  
-**Platform Reference Alignment:** myScheme.gov.in (UX4G Design System)  
+**Platform Reference Alignment:** myScheme.gov.in (ENGORIO Design System)  
 **Engineering Team:** Team Innovision | Engineered by **ENGORIO**  
 **Date:** September 2026  
 
@@ -27,7 +27,7 @@ SamriddhiAI solves these systemic challenges by delivering:
 - **Sub-300ms Deterministic AI Triage Engine:** Zero-hallucination multi-criteria eligibility scoring (0–100%).
 - **Live Automated Government Scheme Fetcher (`GovernmentSchemeSyncEngine`):** Continually ingests, normalizes, and activates newly published schemes from official sources (`data.gov.in` and `myScheme.gov.in`).
 - **SchemeMitra AI Multimodal Assistant:** Floating voice & conversational agent with Web Speech STT/TTS in English, Hindi, Marathi, and Tamil.
-- **UX4G GIGW 3.0 Accessibility Suite (by ENGORIO):** Full 12-tool accessibility modal with ADHD spotlight mask, dyslexia font, color inversion, and dark mode.
+- **ENGORIO GIGW 3.0 Accessibility Suite:** Full 12-tool accessibility modal with ADHD spotlight mask, dyslexia font, color inversion, and dark mode.
 - **Interactive SCA Partner Locator & Direct Application Dispatch:** Connects beneficiaries directly to their local State Channelizing Agency with real-time tracking.
 
 ---
@@ -41,7 +41,7 @@ SamriddhiAI solves these systemic challenges by delivering:
 | **Concessional Lending Range** | 4.0% – 6.0% (vs. 14%–24% commercial bank rates) |
 | **Capital Subsidy Support** | Up to 35% DBT Grant (PMEGP / PM-AJAY) |
 | **Language Support** | English, Hindi (हिंदी), Marathi (मराठी), Tamil (தமிழ்) |
-| **Accessibility Compliance** | GIGW 3.0 & WCAG 2.1 AAA Compliant (UX4G Suite by ENGORIO) |
+| **Accessibility Compliance** | GIGW 3.0 & WCAG 2.1 AAA Compliant (ENGORIO Suite) |
 | **Commission / Intermediary Fee** | ₹0 (Zero Commission, 100% Direct-to-Government) |
 
 ---
@@ -52,7 +52,7 @@ SamriddhiAI solves these systemic challenges by delivering:
 - **AI Rule Inference (`ruleEngine.js`):** Evaluates multi-dimensional variables: caste, gender, income, enterprise sector, required capital, and state regulations to produce a transparent match score (0–100%).
 - **Concessional EMI Calculator (`FinancialCalc.jsx`):** Dynamically calculates monthly installments, total interest paid, DBT capital subsidies (up to 35%), and shows exact savings compared to high commercial bank rates.
 - **Multilingual Assistant (`MiniAssistant.jsx`):** SchemeMitra AI provides bidirectional voice conversations in 4 languages with interactive chips and deep-link triggers.
-- **UX4G Accessibility Modal (`AccessibilityWidget.jsx`):** Docked on the right edge with a clean icon trigger and keyboard shortcut (Ctrl+F2), providing 12 essential accessibility tools and clean dark mode.
+- **ENGORIO Accessibility Modal (`AccessibilityWidget.jsx`):** Docked on the right edge with a clean icon trigger and keyboard shortcut (Ctrl+F2), providing 12 essential accessibility tools and clean dark mode.
 - **SCA Partner Portal (`ChannelPartnerPortal.jsx`):** Officer verification workspace for managing applicant queues, reviewing KYC documents, and approving concessional loans.
 
 ---
@@ -110,7 +110,7 @@ SamriddhiAI solves these systemic challenges by delivering:
       <tr><td><strong>Capital Subsidy Support</strong></td><td>Up to 35% DBT Subsidy (PMEGP / PM-AJAY)</td></tr>
       <tr><td><strong>Automated Govt Ingestion</strong></td><td>Live sync engine fetching new schemes from data.gov.in & myScheme API</td></tr>
       <tr><td><strong>Voice & Multilingual</strong></td><td>Web Speech STT/TTS in English, Hindi, Marathi, and Tamil</td></tr>
-      <tr><td><strong>Accessibility Suite</strong></td><td>12-Tool UX4G GIGW 3.0 Modal Engineered by <strong>ENGORIO</strong></td></tr>
+      <tr><td><strong>Accessibility Suite</strong></td><td>12-Tool GIGW 3.0 Modal Engineered by <strong>ENGORIO</strong></td></tr>
       <tr><td><strong>Intermediary Fees</strong></td><td>₹0 (Zero Commission, 100% Direct-to-Government)</td></tr>
     </table>
   </div>
@@ -122,7 +122,7 @@ SamriddhiAI solves these systemic challenges by delivering:
       <li><strong>Deterministic AI Triage Engine (<code>ruleEngine.js</code>):</strong> 0-100% multi-variable matching across caste, income, gender, age, and state regulations.</li>
       <li><strong>SchemeMitra AI Assistant (<code>MiniAssistant.jsx</code>):</strong> Floating multimodal conversational assistant guiding citizens through eligibility, EMI calculations, and application routing.</li>
       <li><strong>Concessional EMI Calculator (<code>FinancialCalc.jsx</code>):</strong> Compares 4% apex loans vs 14% commercial loans, highlighting exact Lakhs saved.</li>
-      <li><strong>UX4G Accessibility Suite (<code>AccessibilityWidget.jsx</code>):</strong> Right-edge docked accessibility trigger with ADHD spotlight, Dyslexia font, saturation controls, and high-contrast dark mode.</li>
+      <li><strong>ENGORIO Accessibility Suite (<code>AccessibilityWidget.jsx</code>):</strong> Right-edge docked accessibility trigger with ADHD spotlight, Dyslexia font, saturation controls, and high-contrast dark mode.</li>
     </ul>
   </div>
 

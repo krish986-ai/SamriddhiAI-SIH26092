@@ -138,7 +138,7 @@ def create_presentation():
                 [
                     "Zero Commission Fees: 100% free direct-to-government welfare dispatch.",
                     "Sub-300ms Evaluation: Real-time calculation of interest subsidies (up to 35% DBT).",
-                    "GIGW 3.0 Compliance: Full 12-tile UX4G accessibility suite by ENGORIO.",
+                    "GIGW 3.0 Compliance: Full 12-tile accessibility suite by ENGORIO.",
                     "End-to-End Tracking: SMS and transparent stage-by-stage status tracker."
                 ], border_color=c_purple)
 
@@ -155,7 +155,7 @@ def create_presentation():
                 [
                     "React 18 + Vite: High performance sub-500ms reactive client rendering.",
                     "myScheme.gov.in Design System: Official CSS tokens, logos, badges, and layout.",
-                    "UX4G GIGW 3.0 Accessibility Suite: 12-tile assistive toolset engineered by ENGORIO."
+                    "ENGORIO GIGW 3.0 Accessibility Suite: 12-tile assistive toolset engineered by ENGORIO."
                 ], border_color=c_purple)
 
     create_card(s3, Inches(6.8), Inches(1.8), Inches(5.6), Inches(2.3),
@@ -214,13 +214,13 @@ def create_presentation():
                     "Live Ingested Examples: PM-AJAY 4.5% grants & NBCFDC Green Business 4% loans."
                 ], border_color=c_purple)
 
-    # Slide 5: UX4G Accessibility Suite
+    # Slide 5: ENGORIO Accessibility Suite
     s5 = prs.slides.add_slide(blank_slide_layout)
     bg5 = s5.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(13.333), Inches(7.5))
     bg5.fill.solid()
     bg5.fill.fore_color.rgb = c_dark_bg
     bg5.line.fill.background()
-    add_header(s5, "UX4G Accessibility Suite (Engineered by ENGORIO)")
+    add_header(s5, "ENGORIO Accessibility Suite (GIGW 3.0 Compliant)")
 
     create_card(s5, Inches(0.8), Inches(1.8), Inches(5.6), Inches(4.8),
                 "12 Assistive Tools (3x4 Grid)",
@@ -285,7 +285,7 @@ def create_presentation():
                     "Sub-300ms AI Triage Engine.",
                     "Live Government Scheme Sync Engine.",
                     "Multilingual SchemeMitra AI Assistant.",
-                    "UX4G GIGW 3.0 Suite by ENGORIO."
+                    "ENGORIO GIGW 3.0 Suite by ENGORIO."
                 ], border_color=c_bright_green)
 
     create_card(s7, Inches(4.8), Inches(1.8), Inches(3.6), Inches(4.8),

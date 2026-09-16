@@ -13,7 +13,7 @@ export default function AccessibilityWidget({
   const showModal = isOpen !== undefined ? isOpen : internalOpen;
   const setShowModal = setIsOpen || setInternalOpen;
 
-  // 12 UX4G Features State
+  // 12 ENGORIO Features State
   const [textSpacingLevel, setTextSpacingLevel] = useState(0); // 0, 1, 2
   const [lineHeightLevel, setLineHeightLevel] = useState(1); // 0, 1, 2, 3 (defaults to 1 as in reference)
   const [dyslexiaFriendly, setDyslexiaFriendly] = useState(false);
@@ -266,7 +266,7 @@ export default function AccessibilityWidget({
         }}></div>
       )}
 
-      {/* 3. Official UX4G Modal Flyout Window (Right aligned / modal) */}
+      {/* 3. Official ENGORIO Modal Flyout Window (Right aligned / modal) */}
       {showModal && (
         <div style={{
           position: 'fixed',
@@ -297,7 +297,7 @@ export default function AccessibilityWidget({
             animation: 'fadeIn 0.2s ease-out'
           }}>
             
-            {/* Purple Header (Matching exact UX4G reference) */}
+            {/* Purple Header (Matching exact ENGORIO reference) */}
             <div style={{
               background: '#5850ec',
               color: '#ffffff',
@@ -727,7 +727,7 @@ export default function AccessibilityWidget({
 
             </div>
 
-            {/* Footer with Reset Button & Official UX4G Branding (Exact match to reference) */}
+            {/* Footer with Reset Button & Official ENGORIO Branding (Exact match to reference) */}
             <div style={{
               background: '#ffffff',
               borderTop: '1px solid #e2e8f0',
