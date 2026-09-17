@@ -11,6 +11,7 @@ import ChannelPartnerPortal from './components/ChannelPartnerPortal';
 import MiniAssistant from './components/MiniAssistant';
 import AccessibilityWidget from './components/AccessibilityWidget';
 import SchemeSyncManager from './components/SchemeSyncManager';
+import OfficerAuthModal from './components/OfficerAuthModal';
 import Footer from './components/Footer';
 import { SCHEMES_DATABASE } from './data/schemes';
 import { evaluateSchemes } from './utils/ruleEngine';
@@ -21,6 +22,7 @@ export default function App() {
   const [currentLang, setCurrentLang] = useState('en');
   const [activeTab, setActiveTab] = useState('matcher');
   const [isAdminView, setIsAdminView] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isAssistantOpen, setIsAssistantOpen] = useState(false);
@@ -178,7 +180,13 @@ export default function App() {
         activeTab={activeTab}
         onTabChange={setActiveTab}
         isAdminView={isAdminView}
-        onToggleView={() => setIsAdminView(!isAdminView)}
+        onToggleView={() => {
+          if (isAdminView) {
+            setIsAdminView(false);
+          } else {
+            setIsAuthModalOpen(true);
+          }
+        }}
         onTriggerVoice={handleTriggerVoice}
         onOpenAssistant={() => setIsAssistantOpen(true)}
         onOpenAccessibility={() => setIsAccessibilityOpen(true)}
@@ -295,6 +303,13 @@ export default function App() {
           onSubmitApplication={handleSubmitApplication}
         />
       )}
+
+      {/* Official Officer Authentication Modal */}
+      <OfficerAuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        onLoginSuccess={() => setIsAdminView(true)}
+      />
 
       {/* Official Floating SchemeMitra AI Assistant Widget */}
       <MiniAssistant
