@@ -2,6 +2,7 @@
 **Smart India Hackathon 2026 (SIH 2026) | Problem Statement: SIH26092**  
 **Ministry Alignment:** Ministry of Social Justice and Empowerment (MoSJE) & myScheme.gov.in  
 **Engineering Team:** Team Innovision | Engineered by **ENGORIO**  
+**🌐 Live Production Deployment:** [https://sih-scheme-matching.vercel.app](https://sih-scheme-matching.vercel.app)  
 
 ---
 
