@@ -11,13 +11,13 @@ def create_presentation():
     prs.slide_height = Inches(7.5)
     blank_slide_layout = prs.slide_layouts[6]
 
-    # Colors
+    # Colors - Warm Indian Saffron / Orange Theme
     c_navy = RGBColor(17, 24, 39)        # #111827
     c_dark_bg = RGBColor(15, 23, 42)     # #0f172a
     c_card_bg = RGBColor(30, 41, 59)     # #1e293b
-    c_green = RGBColor(19, 111, 56)      # #136f38 (myScheme green)
-    c_bright_green = RGBColor(34, 197, 94)# #22c55e
-    c_orange = RGBColor(249, 115, 22)    # #f97316
+    c_orange = RGBColor(234, 88, 12)     # #ea580c (BHUSEWA Orange)
+    c_bright_orange = RGBColor(249, 115, 22) # #f97316
+    c_amber = RGBColor(245, 158, 11)     # #f59e0b
     c_purple = RGBColor(88, 80, 236)     # #5850ec (ENGORIO purple)
     c_white = RGBColor(255, 255, 255)
     c_light_gray = RGBColor(203, 213, 225)
@@ -32,7 +32,7 @@ def create_presentation():
         p_cat.text = category.upper()
         p_cat.font.size = Pt(10)
         p_cat.font.bold = True
-        p_cat.font.color.rgb = c_orange
+        p_cat.font.color.rgb = c_bright_orange
         
         p_title = tf.add_paragraph()
         p_title.text = title
@@ -40,7 +40,7 @@ def create_presentation():
         p_title.font.bold = True
         p_title.font.color.rgb = c_white
 
-    def create_card(slide, left, top, width, height, title, content_list, border_color=c_green, bg_color=c_card_bg):
+    def create_card(slide, left, top, width, height, title, content_list, border_color=c_orange, bg_color=c_card_bg):
         shape = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, left, top, width, height)
         shape.fill.solid()
         shape.fill.fore_color.rgb = bg_color
@@ -80,11 +80,11 @@ def create_presentation():
     p.text = "SMART INDIA HACKATHON 2026 | PROBLEM STATEMENT SIH26092"
     p.font.size = Pt(12)
     p.font.bold = True
-    p.font.color.rgb = c_orange
+    p.font.color.rgb = c_bright_orange
     p.space_after = Pt(10)
 
     p = tf1.add_paragraph()
-    p.text = "SamriddhiAI"
+    p.text = "BHUSEWA AI"
     p.font.size = Pt(44)
     p.font.bold = True
     p.font.color.rgb = c_white
@@ -92,7 +92,7 @@ def create_presentation():
     p = tf1.add_paragraph()
     p.text = "Next-Gen AI-Driven Concessional Scheme Matching, Financial Triage & SCA Dispatch Platform"
     p.font.size = Pt(18)
-    p.font.color.rgb = c_bright_green
+    p.font.color.rgb = c_bright_orange
     p.space_after = Pt(25)
 
     p = tf1.add_paragraph()
@@ -122,16 +122,16 @@ def create_presentation():
                     "Low Concessional Awareness: Beneficiaries take 24%+ market loans unaware of 4-6% apex rates.",
                     "Language & Literacy Barriers: Complex legal text hinders rural & vernacular citizens.",
                     "SCA Application Bottlenecks: Manual document triage causes 40%+ delay and rejections."
-                ], border_color=c_orange)
+                ], border_color=c_amber)
 
     create_card(s2, Inches(4.8), Inches(1.8), Inches(3.6), Inches(4.8), 
-                "2. The SamriddhiAI Solution", 
+                "2. The BHUSEWA AI Solution", 
                 [
                     "Instant Multi-Criteria AI Matching: 100% accurate rule scoring across SC/ST/OBC criteria.",
                     "Live Govt Ingestion Pipeline: Auto-syncs new central schemes from data.gov.in & myScheme.",
-                    "SchemeMitra AI Assistant: Floating multilingual voice & chat assistant in 4 languages.",
+                    "BhuSewa AI Assistant: Floating multilingual voice & chat assistant in 4 languages.",
                     "Pre-Vetted SCA Routing: Direct geo-spatial dispatch to 36 State Channelizing Agencies."
-                ], border_color=c_bright_green)
+                ], border_color=c_orange)
 
     create_card(s2, Inches(8.8), Inches(1.8), Inches(3.6), Inches(4.8), 
                 "3. Key Impact Goals", 
@@ -154,17 +154,17 @@ def create_presentation():
                 "Frontend & Design System",
                 [
                     "React 18 + Vite: High performance sub-500ms reactive client rendering.",
-                    "myScheme.gov.in Design System: Official CSS tokens, logos, badges, and layout.",
+                    "BHUSEWA Orange Palette: Official myScheme layout with saffron/orange theme.",
                     "ENGORIO GIGW 3.0 Accessibility Suite: 12-tile assistive toolset engineered by ENGORIO."
                 ], border_color=c_purple)
 
     create_card(s3, Inches(6.8), Inches(1.8), Inches(5.6), Inches(2.3),
                 "AI Inference & Triage Engine",
                 [
-                    "Deterministic Rule Scoring Engine: NSFDC, NBCFDC, Stand-Up India, PMEGP logic.",
+                    "Deterministic Rule Scoring Engine: NSFDC, NBCFDC, Stand-Up India, PMEGP, MoSJE logic.",
                     "Multi-Variable Scoring: Evaluates social caste, income limit, gender, project cost, location.",
                     "Zero Hallucination: Grounded mathematical calculations for concessional EMIs."
-                ], border_color=c_bright_green)
+                ], border_color=c_orange)
 
     create_card(s3, Inches(0.8), Inches(4.4), Inches(5.6), Inches(2.3),
                 "Automated Govt Sync Pipeline",
@@ -172,15 +172,15 @@ def create_presentation():
                     "GovernmentSchemeSyncEngine: Automated REST fetcher for data.gov.in & myScheme API.",
                     "Intelligent Schema Normalizer: Cleans, deduplicates, and structures live scheme parameters.",
                     "Hot-Reload Integration: Synced schemes instantly participate in live AI citizen triage."
-                ], border_color=c_orange)
+                ], border_color=c_amber)
 
     create_card(s3, Inches(6.8), Inches(4.4), Inches(5.6), Inches(2.3),
                 "Voice & Multimodal Interface",
                 [
                     "Web Speech STT & SpeechSynthesis: Voice guidance in English, Hindi, Marathi, Tamil.",
-                    "SchemeMitra AI Agent: Context-aware conversational assistant with deep-link navigation.",
+                    "BhuSewa AI Agent: Context-aware conversational assistant with deep-link navigation.",
                     "Direct SCA Dispatch Portal: Officer verification workflow and triage queues."
-                ], border_color=c_bright_green)
+                ], border_color=c_orange)
 
     # Slide 4: Automated Govt Scheme Fetcher
     s4 = prs.slides.add_slide(blank_slide_layout)
@@ -196,7 +196,7 @@ def create_presentation():
                     "Official Endpoints: Connects to data.gov.in & api.myscheme.gov.in.",
                     "Scheduled Cron & On-Demand: Daily automated polling + manual officer trigger.",
                     "Resilient Fallbacks: Handles network interruptions with persistent local cache."
-                ], border_color=c_bright_green)
+                ], border_color=c_orange)
 
     create_card(s4, Inches(4.8), Inches(1.8), Inches(3.6), Inches(4.8),
                 "2. Schema Normalizer",
@@ -204,7 +204,7 @@ def create_presentation():
                     "Standardization: Normalizes raw government fields into standardized JSON format.",
                     "Field Extraction: Extracts nodal agency, interest rates, capital subsidies, caste criteria.",
                     "Deduplication: Compares scheme hashes to prevent redundant records."
-                ], border_color=c_orange)
+                ], border_color=c_amber)
 
     create_card(s4, Inches(8.8), Inches(1.8), Inches(3.6), Inches(4.8),
                 "3. Real-Time Deployment",
@@ -240,9 +240,9 @@ def create_presentation():
                     "Right-Edge Floating Trigger: Minimalist universal accessibility icon button on right edge.",
                     "Global Keyboard Shortcut: Press Ctrl+F2 anywhere on the platform to launch options.",
                     "State Persistence & 1-Click Reset: Instant reset button restoring default view.",
-                    "Optimized Dark Theme: Rich slate palette (#0b1120) with inverted emblems & glowing green tags.",
+                    "Optimized Dark Theme: Rich slate palette (#0b1120) with orange accents & glowing tags.",
                     "Official Branding: Authenticated with 'Created by ENGORIO' badge."
-                ], border_color=c_bright_green)
+                ], border_color=c_orange)
 
     # Slide 6: Citizen Tools
     s6 = prs.slides.add_slide(blank_slide_layout)
@@ -259,7 +259,7 @@ def create_presentation():
                     "DBT Capital Subsidy: Calculates up to 35% upfront subsidy under PMEGP.",
                     "Interactive Sliders: Real-time project cost and tenure adjustment.",
                     "Total Savings Highlight: Displays exact Lakhs saved over repayment tenure."
-                ], border_color=c_bright_green)
+                ], border_color=c_orange)
 
     create_card(s6, Inches(6.8), Inches(1.8), Inches(5.6), Inches(4.8),
                 "Geo-Spatial SCA Partner Locator",
@@ -268,7 +268,7 @@ def create_presentation():
                     "Interactive Map: Visual clickable state pins with district nodal officers.",
                     "Instant Routing: Dispatches application payload directly to local SCA desk.",
                     "Application Tracker: Real-time stage monitoring from submission to sanction."
-                ], border_color=c_orange)
+                ], border_color=c_amber)
 
     # Slide 7: Conclusion & Roadmap
     s7 = prs.slides.add_slide(blank_slide_layout)
@@ -281,12 +281,12 @@ def create_presentation():
     create_card(s7, Inches(0.8), Inches(1.8), Inches(3.6), Inches(4.8),
                 "1. Verified Deliverables",
                 [
-                    "100% myScheme.gov.in Look & Feel.",
+                    "100% myScheme.gov.in Look & Feel with BHUSEWA Orange theme.",
                     "Sub-300ms AI Triage Engine.",
                     "Live Government Scheme Sync Engine.",
-                    "Multilingual SchemeMitra AI Assistant.",
+                    "Multilingual BhuSewa AI Assistant.",
                     "ENGORIO GIGW 3.0 Suite by ENGORIO."
-                ], border_color=c_bright_green)
+                ], border_color=c_orange)
 
     create_card(s7, Inches(4.8), Inches(1.8), Inches(3.6), Inches(4.8),
                 "2. National Impact",
@@ -295,7 +295,7 @@ def create_presentation():
                     "Prevents loan-shark exploitation.",
                     "Reduces SCA processing from 4 weeks to 3 days.",
                     "Zero commission for marginalized citizens."
-                ], border_color=c_orange)
+                ], border_color=c_amber)
 
     create_card(s7, Inches(8.8), Inches(1.8), Inches(3.6), Inches(4.8),
                 "3. Future Roadmap",
@@ -308,7 +308,7 @@ def create_presentation():
 
     # Save to Desktop
     desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-    pptx_output = os.path.join(desktop_path, "SamriddhiAI_Project_Presentation.pptx")
+    pptx_output = os.path.join(desktop_path, "BHUSEWA_Project_Presentation.pptx")
     prs.save(pptx_output)
     print(f"Presentation saved successfully to {pptx_output}")
 

@@ -22,7 +22,10 @@ import {
   MessageSquare,
   ShieldCheck,
   Zap,
-  Check
+  Check,
+  Calculator,
+  MapPin,
+  HelpCircle
 } from 'lucide-react';
 import { TRANSLATIONS } from '../data/translations';
 
@@ -30,22 +33,22 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
 
   const categories = [
-    { id: 'business', title: 'Business & Entrepreneurship', count: '862 Schemes', icon: Briefcase, bg: '#dcfce7', color: '#15803d' },
-    { id: 'banking', title: 'Banking, Financial Services & Insurance', count: '430 Schemes', icon: Landmark, bg: '#fef3c7', color: '#b45309' },
+    { id: 'business', title: 'Business & Entrepreneurship', count: '862 Schemes', icon: Briefcase, bg: '#fff7ed', color: '#ea580c' },
+    { id: 'banking', title: 'Banking, Financial Services & Loans', count: '430 Schemes', icon: Landmark, bg: '#fef3c7', color: '#b45309' },
     { id: 'social', title: 'Social Welfare & Empowerment', count: '1,120 Schemes', icon: Users, bg: '#ede9fe', color: '#6d28d9' },
-    { id: 'women', title: 'Women and Child', count: '380 Schemes', icon: HeartHandshake, bg: '#fce7f3', color: '#be185d' },
+    { id: 'women', title: 'Women & Child Development', count: '380 Schemes', icon: HeartHandshake, bg: '#fce7f3', color: '#be185d' },
     { id: 'agri', title: 'Agriculture, Rural & Environment', count: '640 Schemes', icon: Sprout, bg: '#e0f2fe', color: '#0369a1' },
-    { id: 'skills', title: 'Skills & Employment', count: '410 Schemes', icon: GraduationCap, bg: '#ffedd5', color: '#c2410c' }
+    { id: 'skills', title: 'Education, Skills & Higher Studies', count: '410 Schemes', icon: GraduationCap, bg: '#ffedd5', color: '#c2410c' }
   ];
 
   return (
-    <section style={{ background: '#ffffff', borderBottom: '1px solid #e5e7eb' }}>
+    <section style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
       
-      {/* 1. Official myScheme Main Hero Section */}
+      {/* 1. Official BHUSEWA Main Hero Section */}
       <div style={{
-        background: 'linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%)',
+        background: 'linear-gradient(180deg, #fff7ed 0%, #ffffff 100%)',
         padding: '3rem 0 2rem',
-        borderBottom: '1px solid #e5e7eb',
+        borderBottom: '1px solid #fed7aa',
         position: 'relative'
       }}>
         <div className="container">
@@ -62,25 +65,25 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
               
               {/* Hashtag strip */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
-                <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#136f38', background: '#dcfce7', padding: '0.2rem 0.65rem', borderRadius: '9999px' }}>
-                  #GovtSchemesForYou
+                <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#ea580c', background: '#ffedd5', border: '1px solid #fed7aa', padding: '0.2rem 0.65rem', borderRadius: '9999px' }}>
+                  #SIH26092
                 </span>
-                <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#1e40af', background: '#dbeafe', padding: '0.2rem 0.65rem', borderRadius: '9999px' }}>
-                  #MarginalisedEntrepreneurs
+                <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#1e40af', background: '#dbeafe', border: '1px solid #bfdbfe', padding: '0.2rem 0.65rem', borderRadius: '9999px' }}>
+                  #TeamInnovision
                 </span>
-                <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#c2410c', background: '#ffedd5', padding: '0.2rem 0.65rem', borderRadius: '9999px' }}>
-                  #DigitalIndia
+                <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#c2410c', background: '#ffedd5', border: '1px solid #fed7aa', padding: '0.2rem 0.65rem', borderRadius: '9999px' }}>
+                  #SmartAutomation
                 </span>
               </div>
 
               {/* Prime Minister Quote Card */}
               <div className="hero-quote-card" style={{
                 background: '#ffffff',
-                borderLeft: '4px solid #f97316',
+                borderLeft: '4px solid #ea580c',
                 borderRadius: '0 8px 8px 0',
                 padding: '0.75rem 1rem',
                 marginBottom: '1.25rem',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+                boxShadow: '0 2px 8px rgba(234, 88, 12, 0.08)'
               }}>
                 <div style={{ fontStyle: 'italic', color: '#475569', fontSize: '0.86rem', lineHeight: 1.5 }}>
                   “Digital India means opportunity for all, facility for all and participation of all.”
@@ -92,25 +95,25 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
 
               {/* Primary Headline */}
               <h1 style={{ fontSize: '2.6rem', color: '#111827', lineHeight: 1.16, marginBottom: '0.85rem', fontWeight: 800, letterSpacing: '-0.02em' }}>
-                Find schemes based on <br />
-                <span style={{ color: '#136f38' }}>eligibility</span>
+                AI-Driven Scheme Matching for <br />
+                <span style={{ color: '#ea580c' }}>Marginalised Entrepreneurs</span>
               </h1>
 
               <p style={{ fontSize: '1rem', color: '#4b5563', lineHeight: 1.6, marginBottom: '1.75rem', maxWidth: '540px' }}>
-                Discover central & state government schemes tailored for Scheduled Caste (SC), ST, OBC, and marginalized entrepreneurs with direct channel partner routing.
+                <strong>BHUSEWA</strong> connects Scheduled Caste (SC), ST, OBC, and women entrepreneurs to apex concessional credit (4%–6%), capital subsidies (up to 35%), and verified State Channelizing Agencies.
               </p>
 
-              {/* Big Green Pill CTA */}
+              {/* Big Orange Pill CTA */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
                 <button
                   onClick={onStartMatching}
-                  className="btn-gov-green"
+                  className="btn-gov-orange"
                   style={{
                     fontSize: '1rem',
                     padding: '0.8rem 1.85rem',
                     borderRadius: '9999px',
                     fontWeight: 700,
-                    boxShadow: '0 4px 14px rgba(19, 111, 56, 0.35)'
+                    boxShadow: '0 4px 14px rgba(234, 88, 12, 0.35)'
                   }}
                 >
                   <span>Find Schemes For You</span>
@@ -119,7 +122,7 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
 
                 <button
                   onClick={onOpenAssistant}
-                  className="btn-outline-green"
+                  className="btn-outline-orange"
                   style={{
                     fontSize: '0.92rem',
                     padding: '0.75rem 1.4rem',
@@ -127,12 +130,12 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.45rem',
-                    border: '2px solid #136f38',
+                    border: '2px solid #ea580c',
                     fontWeight: 700
                   }}
                 >
-                  <Bot size={18} color="#136f38" />
-                  <span>Ask SchemeMitra AI</span>
+                  <Bot size={18} color="#ea580c" />
+                  <span>Ask BhuSewa AI</span>
                 </button>
               </div>
 
@@ -143,11 +146,11 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
               <div className="gov-card hero-right-card" style={{
                 background: '#ffffff',
                 padding: '1.6rem',
-                maxWidth: '450px',
+                maxWidth: '460px',
                 width: '100%',
                 borderRadius: '16px',
-                border: '1.5px solid #bbf7d0',
-                boxShadow: '0 15px 35px -5px rgba(19, 111, 56, 0.12)',
+                border: '1.5px solid #fed7aa',
+                boxShadow: '0 15px 35px -5px rgba(234, 88, 12, 0.15)',
                 position: 'relative'
               }}>
                 
@@ -156,48 +159,48 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
                   position: 'absolute',
                   top: '-12px',
                   right: '20px',
-                  background: '#136f38',
+                  background: '#ea580c',
                   color: '#ffffff',
                   fontSize: '0.72rem',
                   fontWeight: 800,
                   padding: '0.25rem 0.85rem',
                   borderRadius: '9999px',
-                  boxShadow: '0 2px 8px rgba(19,111,56,0.3)'
+                  boxShadow: '0 2px 8px rgba(234,88,12,0.3)'
                 }}>
-                  Zero Commission Fees
+                  Zero Intermediary Leakage
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                  <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: '#dcfce7', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#136f38' }}>
+                  <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: '#ffedd5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ea580c' }}>
                     <ShieldCheck size={24} />
                   </div>
                   <div>
-                    <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#111827' }}>SamriddhiAI Triage Engine</div>
-                    <div style={{ fontSize: '0.76rem', color: '#6b7280' }}>National Apex Corporation Verification</div>
+                    <div style={{ fontWeight: 800, fontSize: '1.05rem', color: '#111827' }}>BHUSEWA AI Triage Engine</div>
+                    <div style={{ fontSize: '0.76rem', color: '#64748b' }}>Deterministic Rule Matching & Geo-Spatial Routing</div>
                   </div>
                 </div>
 
-                {/* 3 Core Highlights */}
+                {/* 3 Core Highlights (From SIH26092 PDF Architecture) */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.25rem' }}>
                   
-                  <div className="hero-highlight-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', background: '#f8fafc', padding: '0.7rem 0.85rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                    <CheckCircle2 size={18} color="#136f38" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div className="hero-highlight-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', background: '#f8fafc', padding: '0.7rem 0.85rem', borderRadius: '8px', border: '1px solid #fed7aa' }}>
+                    <CheckCircle2 size={18} color="#ea580c" style={{ flexShrink: 0, marginTop: '2px' }} />
                     <div style={{ fontSize: '0.84rem', color: '#334155' }}>
-                      <strong style={{ color: '#0f172a' }}>4% - 6% Concessional Lending:</strong> Up to ₹50 Lakhs project loan directly through NSFDC & NBCFDC.
+                      <strong style={{ color: '#0f172a' }}>Logic-Engine Scheme Matching:</strong> Instant eligibility check across NSFDC, NBCFDC, MoSJE & Stand-Up India.
                     </div>
                   </div>
 
-                  <div className="hero-highlight-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', background: '#f8fafc', padding: '0.7rem 0.85rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                    <CheckCircle2 size={18} color="#136f38" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div className="hero-highlight-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', background: '#f8fafc', padding: '0.7rem 0.85rem', borderRadius: '8px', border: '1px solid #fed7aa' }}>
+                    <CheckCircle2 size={18} color="#ea580c" style={{ flexShrink: 0, marginTop: '2px' }} />
                     <div style={{ fontSize: '0.84rem', color: '#334155' }}>
-                      <strong style={{ color: '#0f172a' }}>Up to 35% Capital Subsidy:</strong> Direct Benefit Transfer (DBT) capital grants under PMEGP.
+                      <strong style={{ color: '#0f172a' }}>Dynamic Financial Calculator:</strong> 4%–6% concessional EMI, moratorium, and 35% DBT capital subsidy computation.
                     </div>
                   </div>
 
-                  <div className="hero-highlight-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', background: '#f8fafc', padding: '0.7rem 0.85rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                    <CheckCircle2 size={18} color="#136f38" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div className="hero-highlight-item" style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', background: '#f8fafc', padding: '0.7rem 0.85rem', borderRadius: '8px', border: '1px solid #fed7aa' }}>
+                    <CheckCircle2 size={18} color="#ea580c" style={{ flexShrink: 0, marginTop: '2px' }} />
                     <div style={{ fontSize: '0.84rem', color: '#334155' }}>
-                      <strong style={{ color: '#0f172a' }}>Pre-vetted SCA Routing:</strong> Direct connection to State Channelizing Agencies with zero rejections.
+                      <strong style={{ color: '#0f172a' }}>Geo-Spatial SCA Partner Locator:</strong> Direct interactive mapping to State Channelizing Agencies across 36 states/UTs.
                     </div>
                   </div>
 
@@ -207,9 +210,9 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.76rem', borderTop: '1px solid #f1f5f9', paddingTop: '0.75rem', color: '#64748b' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                     <span className="live-indicator"></span>
-                    <span>AI Engine Active</span>
+                    <span>AI Engine Live</span>
                   </div>
-                  <span style={{ fontWeight: 700, color: '#136f38' }}>100% Verified Schemes</span>
+                  <span style={{ fontWeight: 700, color: '#ea580c' }}>100% Verified Schemes</span>
                 </div>
 
               </div>
@@ -220,7 +223,7 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
         </div>
       </div>
 
-      {/* 2. Official 3 Mint-Green Statistics Cards */}
+      {/* 2. Official 3 Orange-Gold Statistics Cards */}
       <div style={{ background: '#ffffff', padding: '1.75rem 0 1.25rem' }}>
         <div className="container">
           
@@ -233,8 +236,8 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
             
             {/* Card 1: Total Schemes */}
             <div style={{
-              background: '#e8f5e9',
-              border: '1.5px solid #c8e6c9',
+              background: '#fff7ed',
+              border: '1.5px solid #fed7aa',
               borderRadius: '12px',
               padding: '1.25rem 1.5rem',
               display: 'flex',
@@ -248,25 +251,25 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
               <div>
-                <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#136f38', lineHeight: 1 }}>
+                <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ea580c', lineHeight: 1 }}>
                   4,770+
                 </div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0e5a2c', marginTop: '0.35rem' }}>
+                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#c2410c', marginTop: '0.35rem' }}>
                   Total Schemes
                 </div>
-                <div style={{ fontSize: '0.76rem', color: '#2e7d32', marginTop: '0.15rem' }}>
+                <div style={{ fontSize: '0.76rem', color: '#9a3412', marginTop: '0.15rem' }}>
                   Discover all central & state schemes →
                 </div>
               </div>
-              <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#136f38', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' }}>
+              <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ea580c', boxShadow: '0 2px 6px rgba(234,88,12,0.12)' }}>
                 <Landmark size={24} />
               </div>
             </div>
 
             {/* Card 2: Central Schemes */}
             <div style={{
-              background: '#e8f5e9',
-              border: '1.5px solid #c8e6c9',
+              background: '#fff7ed',
+              border: '1.5px solid #fed7aa',
               borderRadius: '12px',
               padding: '1.25rem 1.5rem',
               display: 'flex',
@@ -280,25 +283,25 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
               <div>
-                <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#136f38', lineHeight: 1 }}>
+                <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ea580c', lineHeight: 1 }}>
                   710+
                 </div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0e5a2c', marginTop: '0.35rem' }}>
+                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#c2410c', marginTop: '0.35rem' }}>
                   Central Schemes
                 </div>
-                <div style={{ fontSize: '0.76rem', color: '#2e7d32', marginTop: '0.15rem' }}>
-                  NSFDC, MSME, Stand-Up India →
+                <div style={{ fontSize: '0.76rem', color: '#9a3412', marginTop: '0.15rem' }}>
+                  NSFDC, MSME, Stand-Up India, MoSJE →
                 </div>
               </div>
-              <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#136f38', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' }}>
+              <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ea580c', boxShadow: '0 2px 6px rgba(234,88,12,0.12)' }}>
                 <Building2 size={24} />
               </div>
             </div>
 
             {/* Card 3: States / UTs Schemes */}
             <div style={{
-              background: '#e8f5e9',
-              border: '1.5px solid #c8e6c9',
+              background: '#fff7ed',
+              border: '1.5px solid #fed7aa',
               borderRadius: '12px',
               padding: '1.25rem 1.5rem',
               display: 'flex',
@@ -312,17 +315,17 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
               <div>
-                <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#136f38', lineHeight: 1 }}>
+                <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ea580c', lineHeight: 1 }}>
                   4,060+
                 </div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0e5a2c', marginTop: '0.35rem' }}>
+                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#c2410c', marginTop: '0.35rem' }}>
                   States / UTs Schemes
                 </div>
-                <div style={{ fontSize: '0.76rem', color: '#2e7d32', marginTop: '0.15rem' }}>
+                <div style={{ fontSize: '0.76rem', color: '#9a3412', marginTop: '0.15rem' }}>
                   Across 36 States & Union Territories →
                 </div>
               </div>
-              <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#136f38', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' }}>
+              <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ea580c', boxShadow: '0 2px 6px rgba(234,88,12,0.12)' }}>
                 <Users size={24} />
               </div>
             </div>
@@ -344,7 +347,7 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
 
               {/* Tab Pills */}
               <div style={{ display: 'flex', gap: '0.35rem', background: '#f1f5f9', padding: '0.25rem', borderRadius: '9999px' }}>
-                <button style={{ border: 'none', background: '#136f38', color: '#fff', padding: '0.35rem 0.95rem', borderRadius: '9999px', fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer' }}>
+                <button style={{ border: 'none', background: '#ea580c', color: '#fff', padding: '0.35rem 0.95rem', borderRadius: '9999px', fontSize: '0.78rem', fontWeight: 700, cursor: 'pointer' }}>
                   Categories
                 </button>
                 <button style={{ border: 'none', background: 'transparent', color: '#475569', padding: '0.35rem 0.95rem', borderRadius: '9999px', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer' }}>
@@ -388,7 +391,7 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
                       <Icon size={24} />
                     </div>
 
-                    <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#136f38', marginBottom: '0.25rem' }}>
+                    <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#ea580c', marginBottom: '0.25rem' }}>
                       {cat.count}
                     </span>
 
@@ -402,20 +405,20 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
 
           </div>
 
-          {/* 4. "Easy steps to apply for Government Schemes" */}
+          {/* 4. "Easy steps to apply for Government Schemes" (Aligned with SIH26092 PDF Architecture) */}
           <div id="how-it-works" style={{
             background: '#f8fafc',
-            border: '1px solid #e2e8f0',
+            border: '1px solid #fed7aa',
             borderRadius: '16px',
             padding: '2rem 1.75rem'
           }}>
             
             <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
               <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#111827', marginBottom: '0.35rem' }}>
-                Easy steps to apply for Government Schemes
+                End-to-End Application & Matching Workflow (SIH26092)
               </h2>
               <p style={{ fontSize: '0.86rem', color: '#64748b' }}>
-                Follow 3 simple AI-assisted steps to find, evaluate, and route your application
+                SC Beneficiary ➔ AI Logic-Engine Matching ➔ Concessional Feasibility ➔ Channel Partner / SCA Dispatch
               </p>
             </div>
 
@@ -426,20 +429,20 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
             }}>
               
               {/* Step 1 */}
-              <div className="gov-card" style={{ padding: '1.4rem', borderTop: '3px solid #136f38' }}>
+              <div className="gov-card" style={{ padding: '1.4rem', borderTop: '3px solid #ea580c' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                  <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: '#dcfce7', color: '#136f38', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '1rem' }}>
+                  <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: '#ffedd5', color: '#ea580c', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '1rem' }}>
                     1
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#136f38' }}>
-                      1. Enter Details
+                    <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#ea580c' }}>
+                      1. Beneficiary Registration
                     </h3>
-                    <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Citizen Profile</span>
+                    <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Profile & Business Input</span>
                   </div>
                 </div>
                 <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.5 }}>
-                  Enter your social category (SC/ST/OBC), annual income, gender, state, and target enterprise budget.
+                  Enter social category (SC/ST/OBC), annual income, gender, enterprise sector, and target capital requirement in any native Indian dialect.
                 </p>
               </div>
 
@@ -451,31 +454,31 @@ export default function HeroBanner({ currentLang, onStartMatching, onOpenAssista
                   </div>
                   <div>
                     <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#1d4ed8' }}>
-                      2. Search & Match
+                      2. Logic-Engine Matching
                     </h3>
-                    <span style={{ fontSize: '0.72rem', color: '#64748b' }}>AI Rule Matching</span>
+                    <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Multi-Criteria Rule Evaluation</span>
                   </div>
                 </div>
                 <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.5 }}>
-                  Our AI engine matches you against NSFDC, Stand-Up India & PMEGP rules, scoring eligibility from 0 to 100%.
+                  BHUSEWA evaluates criteria against NSFDC, NBCFDC, MoSJE, and Stand-Up India rules, computing 0%–100% eligibility score with zero hallucination.
                 </p>
               </div>
 
               {/* Step 3 */}
-              <div className="gov-card" style={{ padding: '1.4rem', borderTop: '3px solid #b45309' }}>
+              <div className="gov-card" style={{ padding: '1.4rem', borderTop: '3px solid #c2410c' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
-                  <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: '#fef3c7', color: '#b45309', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '1rem' }}>
+                  <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: '#fed7aa', color: '#c2410c', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '1rem' }}>
                     3
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#b45309' }}>
-                      3. Select & Apply
+                    <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#c2410c' }}>
+                      3. Dynamic Calc & SCA Dispatch
                     </h3>
-                    <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Direct SCA Dispatch</span>
+                    <span style={{ fontSize: '0.72rem', color: '#64748b' }}>Geo-Spatial Partner Routing</span>
                   </div>
                 </div>
                 <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.5 }}>
-                  Select the optimal concessional scheme and dispatch your application directly to your local State Channelizing Agency.
+                  Simulate concessional loan EMIs at 4%–6%, compute 35% capital subsidies, and dispatch directly to local State Channelizing Agencies (SCAs).
                 </p>
               </div>
 

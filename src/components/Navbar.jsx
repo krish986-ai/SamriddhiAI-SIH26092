@@ -42,7 +42,7 @@ export default function Navbar({
             <span style={{ color: '#cbd5e1' }}>•</span>
             <span style={{ fontWeight: 500 }}>Ministry of Social Justice and Empowerment</span>
             <span style={{ color: '#cbd5e1' }}>•</span>
-            <span style={{ color: '#15803d', fontWeight: 700 }}>Smart India Hackathon 2026</span>
+            <span style={{ color: '#ea580c', fontWeight: 700 }}>Smart India Hackathon 2026 (SIH26092)</span>
           </div>
 
           {/* Accessibility & Voice Tools */}
@@ -51,7 +51,7 @@ export default function Navbar({
             {/* Accessibility Button */}
             <button 
               onClick={onOpenAccessibility} 
-              title="Accessibility Options (GIGW 3.0)"
+              title="Accessibility Options (ENGORIO GIGW 3.0)"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -73,14 +73,14 @@ export default function Navbar({
             {/* AI Assistant Quick Trigger in Top Bar */}
             <button 
               onClick={onOpenAssistant} 
-              title="Open SchemeMitra AI Assistant"
+              title="Open BhuSewa AI Assistant"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.3rem',
-                background: '#f0fdf4',
-                color: '#136f38',
-                border: '1px solid #86efac',
+                background: '#fff7ed',
+                color: '#ea580c',
+                border: '1px solid #fed7aa',
                 borderRadius: '4px',
                 padding: '0.15rem 0.55rem',
                 fontSize: '0.72rem',
@@ -100,9 +100,9 @@ export default function Navbar({
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.3rem',
-                background: '#e8f5e9',
-                color: '#136f38',
-                border: '1px solid #c8e6c9',
+                background: '#fff7ed',
+                color: '#ea580c',
+                border: '1px solid #fed7aa',
                 borderRadius: '4px',
                 padding: '0.15rem 0.5rem',
                 fontSize: '0.72rem',
@@ -122,7 +122,7 @@ export default function Navbar({
       {/* 2. Official Brand Navbar with Exact CDN Logos */}
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.85rem 1.25rem', gap: '1.25rem' }}>
         
-        {/* Left Logos: Emblem + myScheme + Digital India */}
+        {/* Left Logos: Emblem + BHUSEWA + Digital India */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', cursor: 'pointer', flexShrink: 0 }} onClick={() => onTabChange('matcher')}>
           
           {/* Ashoka Lion Emblem */}
@@ -136,19 +136,19 @@ export default function Navbar({
             <div style={{ height: '36px', width: '1.5px', background: '#e2e8f0' }}></div>
           </div>
 
-          {/* Official myScheme Logo */}
+          {/* Official BHUSEWA Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px' }}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '5px' }}>
                 <span className="brand-logo-text" style={{ fontSize: '1.75rem', fontWeight: 800, color: '#111827', letterSpacing: '-0.03em', fontFamily: 'var(--font-display)' }}>
-                  my<span style={{ color: '#15803d' }}>Scheme</span>
+                  BHU<span style={{ color: '#ea580c' }}>SEWA</span>
                 </span>
-                <span style={{ fontSize: '0.76rem', fontWeight: 800, color: '#ea580c', background: '#fff7ed', border: '1px solid #fed7aa', padding: '1px 6px', borderRadius: '4px', letterSpacing: '0.04em' }}>
-                  SAMRIDDHI
+                <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#ffffff', background: '#ea580c', padding: '2px 7px', borderRadius: '4px', letterSpacing: '0.04em' }}>
+                  AI
                 </span>
               </div>
-              <span style={{ fontSize: '0.68rem', color: '#6b7280', fontWeight: 500, letterSpacing: '0.02em', marginTop: '-3px' }}>
-                Ministry of Social Justice and Empowerment
+              <span style={{ fontSize: '0.68rem', color: '#64748b', fontWeight: 600, letterSpacing: '0.02em', marginTop: '-3px' }}>
+                Ministry of Social Justice and Empowerment (SIH26092)
               </span>
             </div>
           </div>
@@ -177,16 +177,16 @@ export default function Navbar({
               padding: '0.25rem 0.35rem 0.25rem 0.95rem',
               transition: 'all 0.2s ease'
             }}
-            onFocus={(e) => e.currentTarget.style.borderColor = '#15803d'}
+            onFocus={(e) => e.currentTarget.style.borderColor = '#ea580c'}
             onBlur={(e) => e.currentTarget.style.borderColor = '#cbd5e1'}
             >
-              <Search size={16} color="#64748b" style={{ marginRight: '0.45rem' }} />
+              <Search size={16} color="#ea580c" style={{ marginRight: '0.45rem' }} />
               <input
                 type="text"
                 value={searchQuery || ''}
                 onChange={(e) => onSearchChange && onSearchChange(e.target.value)}
                 onKeyDown={(e) => { if (e.key === 'Enter' && onSearchSubmit) onSearchSubmit(); }}
-                placeholder="Enter scheme name to search..."
+                placeholder="Enter scheme name (e.g. SC Micro Finance, Term Loan, Mahila Samriddhi)..."
                 style={{
                   border: 'none',
                   outline: 'none',
@@ -199,7 +199,7 @@ export default function Navbar({
               <button
                 onClick={onSearchSubmit}
                 style={{
-                  background: '#15803d',
+                  background: '#ea580c',
                   color: '#ffffff',
                   border: 'none',
                   borderRadius: '9999px',
@@ -221,13 +221,13 @@ export default function Navbar({
         {/* Right: Language Dropdown, Dark Mode, & Sign In Button */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', flexShrink: 0 }}>
           
-          {/* Language Selector in Green Circle */}
+          {/* Language Selector in Orange Circle */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
             <div style={{
               width: '32px',
               height: '32px',
               borderRadius: '50%',
-              background: '#15803d',
+              background: '#ea580c',
               color: '#ffffff',
               display: 'flex',
               alignItems: 'center',
@@ -243,7 +243,7 @@ export default function Navbar({
                 background: 'transparent',
                 fontSize: '0.84rem',
                 fontWeight: 700,
-                color: '#15803d',
+                color: '#ea580c',
                 cursor: 'pointer',
                 outline: 'none'
               }}
@@ -255,9 +255,9 @@ export default function Navbar({
             </select>
           </div>
 
-          {/* Theme Toggle (Navy box like myScheme) */}
+          {/* Theme Toggle */}
           <div style={{
-            background: isDarkMode ? '#15803d' : '#2f2b45',
+            background: isDarkMode ? '#ea580c' : '#2f2b45',
             borderRadius: '6px',
             width: '34px',
             height: '34px',
@@ -276,7 +276,7 @@ export default function Navbar({
           {/* Officer Portal / Sign In Button */}
           <button
             onClick={onToggleView}
-            className={`btn ${isAdminView ? 'btn-secondary' : 'btn-gov-green'}`}
+            className={`btn ${isAdminView ? 'btn-secondary' : 'btn-gov-orange'}`}
             style={{ 
               padding: '0.55rem 1.25rem', 
               fontSize: '0.84rem',
@@ -302,9 +302,9 @@ export default function Navbar({
 
       </div>
 
-      {/* 3. Official Green Sub-Navigation Bar */}
+      {/* 3. Official Orange Sub-Navigation Bar */}
       {!isAdminView && (
-        <div style={{ background: '#136f38', color: '#ffffff', borderTop: '1px solid #0e5a2c' }}>
+        <div style={{ background: '#ea580c', color: '#ffffff', borderTop: '1px solid #c2410c' }}>
           <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', overflowX: 'auto', padding: '0 1.25rem' }}>
             <nav style={{ display: 'flex', gap: '0.25rem' }}>
               {navItems.map(item => {
@@ -320,12 +320,12 @@ export default function Navbar({
                       gap: '0.45rem',
                       padding: '0.7rem 0.95rem',
                       border: 'none',
-                      background: isActive ? '#0e5a2c' : 'transparent',
+                      background: isActive ? '#c2410c' : 'transparent',
                       color: '#ffffff',
                       fontWeight: isActive ? 700 : 500,
                       fontSize: '0.85rem',
                       cursor: 'pointer',
-                      borderBottom: isActive ? '3px solid #f97316' : '3px solid transparent',
+                      borderBottom: isActive ? '3px solid #fde047' : '3px solid transparent',
                       transition: 'all 0.15s ease',
                       whiteSpace: 'nowrap'
                     }}
@@ -337,12 +337,12 @@ export default function Navbar({
               })}
             </nav>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.76rem', color: '#dcfce7', flexShrink: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.76rem', color: '#ffedd5', flexShrink: 0 }}>
               <button
                 onClick={onOpenAssistant}
                 style={{
-                  background: 'rgba(255, 255, 255, 0.15)',
-                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.4)',
                   color: '#ffffff',
                   borderRadius: '9999px',
                   padding: '0.25rem 0.75rem',
@@ -355,9 +355,9 @@ export default function Navbar({
                 }}
               >
                 <Bot size={13} />
-                <span>Ask SchemeMitra</span>
+                <span>Ask BhuSewa AI</span>
               </button>
-              <span className="live-indicator"></span>
+              <span className="live-indicator" style={{ background: '#fde047' }}></span>
               <span>4,770+ Verified Schemes</span>
             </div>
           </div>

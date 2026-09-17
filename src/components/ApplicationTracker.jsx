@@ -19,11 +19,11 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
   const selectedApp = applications.find(a => a.id === selectedAppId) || applications[0];
 
   const stages = [
-    { key: "Submitted", label: t.stepSubmitted, desc: "Application lodged via SamriddhiAI" },
+    { key: "Submitted", label: t.stepSubmitted, desc: "Application lodged via BHUSEWA AI" },
     { key: "SCA Verification", label: t.stepSCA, desc: "Caste & income verification by State Agency" },
     { key: "Partner Review", label: t.stepPartner, desc: "Technical & financial viability appraisal" },
     { key: "Sanctioned", label: t.stepSanction, desc: "Formal concessional sanction issued" },
-    { key: "Disbursed", label: t.stepDisbursed, desc: "Funds credited to beneficiary account" }
+    { key: "Disbursed", label: t.stepDisbursed, desc: "Funds credited to beneficiary account via DBT" }
   ];
 
   const getStageIndex = (status) => {
@@ -49,11 +49,11 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
             width: '36px',
             height: '36px',
             borderRadius: '10px',
-            background: '#eff6ff',
+            background: '#fff7ed',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#1d4ed8'
+            color: '#ea580c'
           }}>
             <FileCheck size={20} />
           </div>
@@ -67,8 +67,8 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) minmax(400px, 2fr)', gap: '1.5rem' }}>
         
         {/* Applications List */}
-        <div className="gov-card" style={{ padding: '1.25rem', background: '#ffffff' }}>
-          <h3 style={{ fontSize: '1rem', marginBottom: '1rem', color: '#15803d' }}>
+        <div className="gov-card" style={{ padding: '1.25rem', background: '#ffffff', border: '1px solid #fed7aa' }}>
+          <h3 style={{ fontSize: '1rem', marginBottom: '1rem', color: '#ea580c' }}>
             Active Beneficiary Applications
           </h3>
 
@@ -82,17 +82,17 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
                   style={{
                     padding: '1rem',
                     borderRadius: '10px',
-                    border: isSelected ? '2px solid #15803d' : '1px solid #e2e8f0',
-                    background: isSelected ? '#f0fdf4' : '#ffffff',
+                    border: isSelected ? '2px solid #ea580c' : '1px solid #fed7aa',
+                    background: isSelected ? '#fff7ed' : '#ffffff',
                     cursor: 'pointer',
                     transition: 'all 0.15s ease'
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.3rem' }}>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#15803d' }}>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#ea580c' }}>
                       {app.appId}
                     </span>
-                    <span className="badge badge-green" style={{ fontSize: '0.7rem' }}>
+                    <span className="badge badge-orange" style={{ fontSize: '0.7rem' }}>
                       {app.status}
                     </span>
                   </div>
@@ -101,7 +101,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
                   
                   <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', color: '#64748b' }}>
                     <span>Applicant: <strong style={{ color: '#1e293b' }}>{app.applicantName}</strong></span>
-                    <span style={{ color: '#15803d', fontWeight: 700 }}>₹{(app.requestedAmount / 100000).toFixed(1)}L</span>
+                    <span style={{ color: '#ea580c', fontWeight: 700 }}>₹{(app.requestedAmount / 100000).toFixed(1)}L</span>
                   </div>
                 </div>
               );
@@ -111,7 +111,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
 
         {/* Selected Application Detailed View */}
         {selectedApp && (
-          <div className="gov-card" style={{ padding: '1.8rem', background: '#ffffff' }}>
+          <div className="gov-card" style={{ padding: '1.8rem', background: '#ffffff', border: '1px solid #fed7aa' }}>
             
             {/* Top Detail Card */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.8rem', paddingBottom: '1.2rem', borderBottom: '1px solid #f1f5f9' }}>
@@ -121,19 +121,19 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
                 </span>
                 <h3 style={{ fontSize: '1.35rem', marginBottom: '0.2rem', color: '#0f172a' }}>{selectedApp.schemeTitle}</h3>
                 <p style={{ fontSize: '0.85rem', color: '#64748b' }}>
-                  Submitted on {selectedApp.submissionDate} | Channel Partner: <strong>{selectedApp.channelPartner || "Delhi DSFDC Central"}</strong>
+                  Submitted on {selectedApp.submissionDate} | Channel Partner: <strong>{selectedApp.channelPartner || "State Channelizing Agency Nodal Office"}</strong>
                 </p>
               </div>
 
               <div style={{ textAlign: 'right' }}>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Sanction Amount</div>
-                <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#15803d' }}>
+                <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#ea580c' }}>
                   ₹{(selectedApp.requestedAmount).toLocaleString('en-IN')}
                 </div>
                 <button
                   onClick={() => setShowSanctionModal(true)}
                   className="btn btn-secondary"
-                  style={{ marginTop: '0.5rem', padding: '0.35rem 0.75rem', fontSize: '0.75rem', borderColor: '#cbd5e1' }}
+                  style={{ marginTop: '0.5rem', padding: '0.35rem 0.75rem', fontSize: '0.75rem', borderColor: '#fed7aa' }}
                 >
                   <Download size={13} />
                   <span>Preview Sanction Letter</span>
@@ -143,7 +143,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
 
             {/* Lifecycle Stages */}
             <div style={{ marginBottom: '2rem' }}>
-              <h4 style={{ fontSize: '0.95rem', marginBottom: '1.2rem', color: '#15803d' }}>
+              <h4 style={{ fontSize: '0.95rem', marginBottom: '1.2rem', color: '#ea580c' }}>
                 Live Milestone Tracking
               </h4>
 
@@ -159,7 +159,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
                         width: '32px',
                         height: '32px',
                         borderRadius: '50%',
-                        background: isCompleted ? '#15803d' : '#f1f5f9',
+                        background: isCompleted ? '#ea580c' : '#f1f5f9',
                         color: isCompleted ? '#ffffff' : '#64748b',
                         border: isCompleted ? 'none' : '1.5px solid #cbd5e1',
                         display: 'flex',
@@ -178,7 +178,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
                             {st.label}
                           </span>
                           {isCurrent && (
-                            <span className="badge badge-green" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem' }}>
+                            <span className="badge badge-orange" style={{ fontSize: '0.68rem', padding: '0.1rem 0.4rem' }}>
                               In Progress
                             </span>
                           )}
@@ -195,9 +195,9 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
             </div>
 
             {/* Document Verification Checklist */}
-            <div style={{ background: '#f8fafc', padding: '1.2rem', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
+            <div style={{ background: '#fff7ed', padding: '1.2rem', borderRadius: '10px', border: '1px solid #fed7aa' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.8rem' }}>
-                <h4 style={{ fontSize: '0.92rem', color: '#15803d', margin: 0, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <h4 style={{ fontSize: '0.92rem', color: '#ea580c', margin: 0, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                   <ShieldCheck size={16} />
                   <span>SCA Document Verification Status</span>
                 </h4>
@@ -213,7 +213,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
                     type="checkbox"
                     checked={docChecks.casteCert}
                     onChange={(e) => setDocChecks({ ...docChecks, casteCert: e.target.checked })}
-                    style={{ accentColor: '#15803d' }}
+                    style={{ accentColor: '#ea580c' }}
                   />
                   <span>Scheduled Caste Validity Certificate (Digitally Verified by Revenue Dept)</span>
                 </label>
@@ -223,7 +223,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
                     type="checkbox"
                     checked={docChecks.incomeCert}
                     onChange={(e) => setDocChecks({ ...docChecks, incomeCert: e.target.checked })}
-                    style={{ accentColor: '#15803d' }}
+                    style={{ accentColor: '#ea580c' }}
                   />
                   <span>Income Certificate (Annual household income confirmed &lt; ₹3 Lakhs)</span>
                 </label>
@@ -233,7 +233,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
                     type="checkbox"
                     checked={docChecks.dpr}
                     onChange={(e) => setDocChecks({ ...docChecks, dpr: e.target.checked })}
-                    style={{ accentColor: '#15803d' }}
+                    style={{ accentColor: '#ea580c' }}
                   />
                   <span>Detailed Project Feasibility Report (DPR / Cashflow Projections)</span>
                 </label>
@@ -243,7 +243,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
                     type="checkbox"
                     checked={docChecks.aadhaar}
                     onChange={(e) => setDocChecks({ ...docChecks, aadhaar: e.target.checked })}
-                    style={{ accentColor: '#15803d' }}
+                    style={{ accentColor: '#ea580c' }}
                   />
                   <span>Aadhaar & Bank Account Linkage (Aadhaar Enabled Payment System - AePS)</span>
                 </label>
@@ -253,7 +253,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
                     type="checkbox"
                     checked={docChecks.quotation}
                     onChange={(e) => setDocChecks({ ...docChecks, quotation: e.target.checked })}
-                    style={{ accentColor: '#15803d' }}
+                    style={{ accentColor: '#ea580c' }}
                   />
                   <span>Vendor Quotations / Proforma Invoice for Equipment & Stock</span>
                 </label>
@@ -276,24 +276,24 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           zIndex: 3000, padding: '1.5rem'
         }}>
-          <div className="gov-card" style={{ maxWidth: '620px', width: '100%', padding: '2rem', background: '#ffffff', border: '2px solid #bbf7d0' }}>
+          <div className="gov-card" style={{ maxWidth: '620px', width: '100%', padding: '2rem', background: '#ffffff', border: '2px solid #fed7aa' }}>
             
             <div style={{ textAlign: 'center', borderBottom: '2px solid #e2e8f0', paddingBottom: '1rem', marginBottom: '1.2rem' }}>
-              <span className="badge badge-green" style={{ marginBottom: '0.5rem' }}>
+              <span className="badge badge-orange" style={{ marginBottom: '0.5rem' }}>
                 GOVERNMENT OF INDIA CONCESSIONAL LENDING SANCTION
               </span>
               <h3 style={{ fontSize: '1.25rem', marginTop: '0.3rem', color: '#0f172a' }}>
                 Provisional In-Principle Sanction Order
               </h3>
               <p style={{ fontSize: '0.75rem', color: '#64748b' }}>
-                Issued via myScheme Samriddhi Platform under National Scheduled Castes Finance & Dev. Corp.
+                Issued via BHUSEWA AI Platform under National Scheduled Castes Finance & Dev. Corp.
               </p>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.85rem', color: '#334155', marginBottom: '1.5rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span>Application Reference:</span>
-                <strong style={{ color: '#15803d' }}>{selectedApp.appId}</strong>
+                <strong style={{ color: '#ea580c' }}>{selectedApp.appId}</strong>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span>Beneficiary Name:</span>
@@ -305,11 +305,11 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span>Sanctioned Credit Limit:</span>
-                <strong style={{ color: '#15803d' }}>₹{(selectedApp.requestedAmount).toLocaleString('en-IN')}</strong>
+                <strong style={{ color: '#ea580c' }}>₹{(selectedApp.requestedAmount).toLocaleString('en-IN')}</strong>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span>Concessional Interest Rate:</span>
-                <strong style={{ color: '#15803d' }}>5.5% p.a. (Subsidized)</strong>
+                <strong style={{ color: '#ea580c' }}>5.5% p.a. (Subsidized)</strong>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span>Allocated Channel Partner:</span>
@@ -321,7 +321,7 @@ export default function ApplicationTracker({ applications, onUpdateStatus, curre
               <button onClick={() => setShowSanctionModal(false)} className="btn btn-secondary">
                 Close
               </button>
-              <button onClick={() => { alert("Official PDF download triggered!"); setShowSanctionModal(false); }} className="btn btn-gov-green">
+              <button onClick={() => { alert("Official PDF download triggered!"); setShowSanctionModal(false); }} className="btn btn-gov-orange">
                 <Download size={15} />
                 <span>Download Official Order</span>
               </button>

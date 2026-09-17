@@ -80,15 +80,15 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.8rem', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.35rem' }}>
-            <span className="badge badge-green">
+            <span className="badge badge-orange">
               <ShieldCheck size={14} /> Official Nodal Officer View
             </span>
             <span className="badge badge-blue">
-              State Channelizing Agency (SCA) & Bank Nodal Desk
+              State Channelizing Agency (SCA) & Bank Nodal Desk (SIH26092)
             </span>
           </div>
           <h2 style={{ fontSize: '1.65rem', margin: 0, color: '#0f172a' }}>
-            Channel Partner Command & Triage Portal
+            BHUSEWA Channel Partner Command & Triage Portal
           </h2>
           <p style={{ fontSize: '0.88rem', color: '#64748b' }}>
             Empowering nodal officers to review pre-vetted applications, issue concessional sanctions, and monitor fund deployment.
@@ -99,9 +99,9 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
           <button 
             onClick={() => alert("Simulating batch sync with NSFDC Central Core Server...")}
             className="btn btn-secondary" 
-            style={{ fontSize: '0.82rem', borderColor: '#cbd5e1' }}
+            style={{ fontSize: '0.82rem', borderColor: '#fed7aa' }}
           >
-            <RefreshCw size={14} />
+            <RefreshCw size={14} color="#ea580c" />
             <span>Sync Core Banking / SCA DB</span>
           </button>
         </div>
@@ -110,17 +110,17 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
       {/* High-Impact Ecosystem Impact Metrics */}
       <div className="grid-4" style={{ marginBottom: '1.8rem' }}>
         
-        <div className="gov-card" style={{ padding: '1.25rem', borderLeft: '4px solid #15803d', background: '#ffffff' }}>
+        <div className="gov-card" style={{ padding: '1.25rem', borderLeft: '4px solid #ea580c', background: '#ffffff', borderTop: '1px solid #fed7aa' }}>
           <div style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>Misrouted Applications</div>
-          <div style={{ fontSize: '1.85rem', fontWeight: 800, color: '#15803d', margin: '0.2rem 0' }}>
+          <div style={{ fontSize: '1.85rem', fontWeight: 800, color: '#ea580c', margin: '0.2rem 0' }}>
             -78.4%
           </div>
           <div style={{ fontSize: '0.75rem', color: '#475569' }}>
-            Reduced from 42% to 8.6% via AI Logic Engine
+            Reduced from 42% to 8.6% via BHUSEWA Logic Engine
           </div>
         </div>
 
-        <div className="gov-card" style={{ padding: '1.25rem', borderLeft: '4px solid #1e40af', background: '#ffffff' }}>
+        <div className="gov-card" style={{ padding: '1.25rem', borderLeft: '4px solid #1e40af', background: '#ffffff', borderTop: '1px solid #fed7aa' }}>
           <div style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>Average Disbursement Time</div>
           <div style={{ fontSize: '1.85rem', fontWeight: 800, color: '#1e40af', margin: '0.2rem 0' }}>
             14 Days
@@ -130,9 +130,9 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
           </div>
         </div>
 
-        <div className="gov-card" style={{ padding: '1.25rem', borderLeft: '4px solid #b45309', background: '#ffffff' }}>
+        <div className="gov-card" style={{ padding: '1.25rem', borderLeft: '4px solid #c2410c', background: '#ffffff', borderTop: '1px solid #fed7aa' }}>
           <div style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>Concessional Credit Disbursed</div>
-          <div style={{ fontSize: '1.85rem', fontWeight: 800, color: '#b45309', margin: '0.2rem 0' }}>
+          <div style={{ fontSize: '1.85rem', fontWeight: 800, color: '#c2410c', margin: '0.2rem 0' }}>
             ₹48.2 Cr
           </div>
           <div style={{ fontSize: '0.75rem', color: '#475569' }}>
@@ -140,7 +140,7 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
           </div>
         </div>
 
-        <div className="gov-card" style={{ padding: '1.25rem', borderLeft: '4px solid #0e7490', background: '#ffffff' }}>
+        <div className="gov-card" style={{ padding: '1.25rem', borderLeft: '4px solid #0e7490', background: '#ffffff', borderTop: '1px solid #fed7aa' }}>
           <div style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>Active Channel Partners</div>
           <div style={{ fontSize: '1.85rem', fontWeight: 800, color: '#0e7490', margin: '0.2rem 0' }}>
             540+
@@ -153,7 +153,7 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
       </div>
 
       {/* Application Triage Table Card */}
-      <div className="gov-card" style={{ padding: '1.5rem', background: '#ffffff' }}>
+      <div className="gov-card" style={{ padding: '1.5rem', background: '#ffffff', border: '1px solid #fed7aa' }}>
         
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem', flexWrap: 'wrap', gap: '0.8rem' }}>
           <div>
@@ -164,7 +164,7 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-            <Filter size={15} color="#64748b" />
+            <Filter size={15} color="#ea580c" />
             <select
               value={filterScheme}
               onChange={(e) => setFilterScheme(e.target.value)}
@@ -200,7 +200,7 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
                   
                   <td style={{ padding: '0.85rem 0.6rem' }}>
                     <div style={{ fontWeight: 700, color: '#0f172a' }}>{row.applicantName}</div>
-                    <div style={{ fontSize: '0.72rem', color: '#15803d', fontWeight: 600 }}>{row.id}</div>
+                    <div style={{ fontSize: '0.72rem', color: '#ea580c', fontWeight: 600 }}>{row.id}</div>
                   </td>
 
                   <td style={{ padding: '0.85rem 0.6rem', color: '#475569' }}>
@@ -211,21 +211,21 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
                     {row.scheme}
                   </td>
 
-                  <td style={{ padding: '0.85rem 0.6rem', fontWeight: 700, color: '#15803d' }}>
+                  <td style={{ padding: '0.85rem 0.6rem', fontWeight: 700, color: '#ea580c' }}>
                     ₹{(row.amount).toLocaleString('en-IN')}
                   </td>
 
                   <td style={{ padding: '0.85rem 0.6rem' }}>
-                    <span className="badge badge-green" style={{ fontSize: '0.72rem' }}>
+                    <span className="badge badge-orange" style={{ fontSize: '0.72rem' }}>
                       {row.matchScore}% Pre-Vetted
                     </span>
                   </td>
 
                   <td style={{ padding: '0.85rem 0.6rem' }}>
                     <span className={`badge ${
-                      row.status === 'Disbursed' ? 'badge-cyan' :
-                      row.status === 'Sanctioned' ? 'badge-green' :
-                      row.status === 'Partner Review' ? 'badge-blue' : 'badge-amber'
+                      row.status === 'Disbursed' ? 'badge-purple' :
+                      row.status === 'Sanctioned' ? 'badge-orange' :
+                      row.status === 'Partner Review' ? 'badge-blue' : 'badge-orange'
                     }`} style={{ fontSize: '0.72rem' }}>
                       {row.status}
                     </span>
@@ -236,7 +236,7 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
                       {row.status !== 'Sanctioned' && row.status !== 'Disbursed' && (
                         <button
                           onClick={() => handleAction(row.id, 'Sanctioned')}
-                          className="btn btn-gov-green"
+                          className="btn btn-gov-orange"
                           style={{ padding: '0.3rem 0.65rem', fontSize: '0.75rem' }}
                           title="Issue Concessional Sanction"
                         >
@@ -248,7 +248,7 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
                       {row.status === 'Sanctioned' && (
                         <button
                           onClick={() => handleAction(row.id, 'Disbursed')}
-                          className="btn btn-success"
+                          className="btn btn-gov-orange"
                           style={{ padding: '0.3rem 0.65rem', fontSize: '0.75rem' }}
                           title="Direct Benefit Transfer Disbursement"
                         >
@@ -260,7 +260,7 @@ export default function ChannelPartnerPortal({ applications, onUpdateAppStatus }
                       <button
                         onClick={() => alert(`Applicant ${row.applicantName}: Digital caste validity confirmed via DigiLocker. DSCR viability confirmed at ${row.dscrRatio}.`)}
                         className="btn btn-secondary"
-                        style={{ padding: '0.3rem 0.55rem', fontSize: '0.75rem', borderColor: '#cbd5e1' }}
+                        style={{ padding: '0.3rem 0.55rem', fontSize: '0.75rem', borderColor: '#fed7aa' }}
                         title="View Full Dossier"
                       >
                         <FileText size={13} />

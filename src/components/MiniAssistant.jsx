@@ -46,7 +46,7 @@ export default function MiniAssistant({
     {
       id: 1,
       sender: 'bot',
-      text: "Namaste! 🙏 I am **SchemeMitra AI**, your official myScheme assistant for marginalized & SC/ST/OBC entrepreneurs. How can I assist your business journey today?",
+      text: "Namaste! 🙏 I am **BhuSewa AI**, your official SIH26092 intelligent scheme assistant for marginalized SC/ST/OBC entrepreneurs. How can I guide your concessional credit journey today?",
       suggestions: [
         "Find schemes for SC Woman Artisan",
         "How to get 4% NSFDC Concessional Loan?",
@@ -105,137 +105,103 @@ export default function MiniAssistant({
     recognition.start();
   };
 
-  // AI Knowledge Answer Engine
-  const generateBotResponse = (query) => {
-    const q = query.toLowerCase();
-    
-    // 1. Mahila Samriddhi / SC Women
-    if (q.includes('woman') || q.includes('women') || q.includes('mahila') || q.includes('artisan') || q.includes('tailoring') || q.includes('female')) {
-      const scheme = SCHEMES_DATABASE.find(s => s.id === 'mahila-samriddhi') || SCHEMES_DATABASE[0];
+  // Rule-based NLP Knowledge Router
+  const generateBotResponse = (userQuery) => {
+    const q = userQuery.toLowerCase();
+
+    if (q.includes('woman') || q.includes('women') || q.includes('mahila') || q.includes('female') || q.includes('artisan')) {
+      const ms = SCHEMES_DATABASE.find(s => s.id === 'mahila-samriddhi') || SCHEMES_DATABASE[0];
       return {
-        text: `For women entrepreneurs (especially SC women), the **Mahila Samriddhi Yojana** is the highest recommended scheme!\n\n• **Interest Rate:** Super concessional **4% p.a.** (vs ~13.5% commercial bank rate)\n• **Max Funding:** Up to **₹1.40 Lakhs** micro-credit\n• **Subsidy:** 30% margin grant\n• **Collateral:** Zero collateral required\n• **Administered by:** NSFDC & State Women Development Corporations.`,
-        actionType: 'scheme',
-        schemeData: scheme,
+        text: `✨ **Mahila Samriddhi Yojana (MSY)** is ideal for you!\n\n• **Interest Rate:** 4.0% p.a. (Super concessional)\n• **Max Loan:** ₹1,40,000 with 30% margin subsidy\n• **Eligibility:** Scheduled Caste (SC) women with family income under ₹3 Lakhs\n• **Eligible Sectors:** Tailoring, Handicrafts, Dairy, Retail & Micro-Enterprise`,
         actionButtons: [
-          { label: "View Mahila Samriddhi", type: "modal", scheme },
-          { label: "Calculate 4% EMI", type: "calc", scheme }
+          { label: "View Mahila Samriddhi Details", type: "modal", scheme: ms },
+          { label: "Calculate 4% EMI", type: "calc", scheme: ms },
+          { label: "Find Local SCA", type: "locator" }
         ],
-        suggestions: [
-          "Documents needed for Mahila Samriddhi",
-          "Find SCA Partner in my state",
-          "Tell me about Stand-Up India"
-        ]
+        suggestions: ["Documents required for Mahila Samriddhi", "Can I apply without collateral?"]
       };
     }
 
-    // 2. NSFDC Concessional Term Loan / 4-6% Rate
-    if (q.includes('nsfdc') || q.includes('4%') || q.includes('6%') || q.includes('concessional') || q.includes('term loan') || q.includes('manufacturing')) {
-      const scheme = SCHEMES_DATABASE.find(s => s.id === 'nsfdc-term-loan') || SCHEMES_DATABASE[0];
+    if (q.includes('4%') || q.includes('nsfdc') || q.includes('micro') || q.includes('term loan') || q.includes('rate')) {
+      const tl = SCHEMES_DATABASE.find(s => s.id === 'nsfdc-term-loan') || SCHEMES_DATABASE[0];
       return {
-        text: `The **NSFDC Concessional Term Loan Scheme** provides project financing up to **₹50 Lakhs** at just **6% p.a.** interest for SC entrepreneurs.\n\n• **Eligible Sectors:** Manufacturing, Services, Trading, Agri-Allied\n• **Tenure:** Up to 5 Years with 6–12 months initial moratorium\n• **Channel Partner:** Channeled through your State Channelizing Agency (SCA) or Public Sector Banks.`,
-        actionType: 'scheme',
-        schemeData: scheme,
+        text: `🏛️ **NSFDC & NBCFDC Concessional Credit Schemes:**\n\n1. **NSFDC Micro-Credit Finance (MCF):** 5% p.a. up to ₹1.4 Lakhs (Quick sanction, zero collateral)\n2. **NSFDC Term Loan Scheme:** 6% p.a. up to ₹50 Lakhs for plant, machinery & commercial assets\n3. **Mahila Samriddhi:** 4% p.a. for SC women entrepreneurs\n\n*These interest rates are subsidized by the Ministry of Social Justice & Empowerment.*`,
         actionButtons: [
-          { label: "Explore NSFDC Scheme", type: "modal", scheme },
-          { label: "Calculate Savings vs Bank", type: "calc", scheme }
+          { label: "Explore Term Loan (₹50L)", type: "modal", scheme: tl },
+          { label: "Launch Concessional Calculator", type: "calc", scheme: tl }
         ],
-        suggestions: [
-          "What is the family income limit?",
-          "How does SCA routing work?",
-          "Documents required for NSFDC"
-        ]
+        suggestions: ["How to apply via SCA?", "What is the income ceiling?"]
       };
     }
 
-    // 3. PMEGP / Subsidy
-    if (q.includes('pmegp') || q.includes('subsidy') || q.includes('35%') || q.includes('grant') || q.includes('capital subsidy')) {
-      const scheme = SCHEMES_DATABASE.find(s => s.id === 'pmegp-sc-special') || SCHEMES_DATABASE[0];
+    if (q.includes('education') || q.includes('elas') || q.includes('study') || q.includes('college')) {
+      const elas = SCHEMES_DATABASE.find(s => s.id === 'mosje-educational-loan') || SCHEMES_DATABASE[0];
       return {
-        text: `Under the **PMEGP Special Category (SC/ST/Women)**:\n\n• **Rural Units:** Get **35% Direct Capital Subsidy** (Government Grant)\n• **Urban Units:** Get **25% Capital Subsidy**\n• **Max Project Cost:** Up to ₹50 Lakhs (Manufacturing) / ₹20 Lakhs (Services)\n• **Beneficiary Contribution:** Only 5% of project cost!`,
-        actionType: 'scheme',
-        schemeData: scheme,
+        text: `🎓 **Educational Loan Scheme (ELAS) - MoSJE:**\n\n• **Concessional Rate:** 4.0% p.a. for female students (4.5% for others)\n• **Max Limit:** Up to ₹20 Lakhs for professional courses in India/Abroad\n• **Moratorium:** Course Duration + 1 full year before repayment starts`,
         actionButtons: [
-          { label: "View PMEGP Details", type: "modal", scheme },
-          { label: "Check Subsidy Calculation", type: "calc", scheme }
+          { label: "View Education Loan Details", type: "modal", scheme: elas },
+          { label: "Calculate Education EMI", type: "calc", scheme: elas }
         ],
-        suggestions: [
-          "Which documents are needed for PMEGP?",
-          "Can I apply online?",
-          "Find nearest District Industries Centre (DIC)"
-        ]
+        suggestions: ["Eligible professional courses", "SCA partner list"]
       };
     }
 
-    // 4. State Channelizing Agency (SCA) / Partner Locator
-    if (q.includes('sca') || q.includes('partner') || q.includes('maharashtra') || q.includes('office') || q.includes('delhi') || q.includes('tamil nadu') || q.includes('where to apply')) {
+    if (q.includes('subsidy') || q.includes('pmegp') || q.includes('grant') || q.includes('35%') || q.includes('free money')) {
+      const pmegp = SCHEMES_DATABASE.find(s => s.id === 'pmegp-scheme') || SCHEMES_DATABASE[0];
       return {
-        text: `Applications under apex corporations (NSFDC, NBCFDC, NSKFDC) are routed through accredited **State Channelizing Agencies (SCAs)**:\n\n• **Maharashtra:** MPBCDC (Mahatma Phule Backward Class Dev Corp)\n• **Delhi:** DSFDC (Delhi SC/ST/OBC Dev Corp)\n• **Tamil Nadu:** TAHDCO (TN Adi Dravidar Housing & Dev Corp)\n• **Uttar Pradesh:** UPSDFC (UP Scheduled Castes Finance & Dev Corp)\n\nOur system automatically links your application to the nearest district office.`,
+        text: `💰 **Prime Minister's Employment Generation Programme (PMEGP):**\n\n• **Capital Subsidy:** 35% in rural areas, 25% in urban areas for SC/ST/OBC/Women\n• **Max Project Cost:** ₹50 Lakhs for manufacturing, ₹20 Lakhs for service sector\n• **Beneficiary Contribution:** Only 5% margin money required from borrower`,
         actionButtons: [
-          { label: "Open SCA Geo-Locator Map", type: "locator" },
-          { label: "Find Schemes for my State", type: "schemes" }
+          { label: "View PMEGP Scheme", type: "modal", scheme: pmegp },
+          { label: "Simulate 35% Subsidy", type: "calc", scheme: pmegp }
         ],
-        suggestions: [
-          "Check my eligibility score",
-          "What is the turnaround time?",
-          "Are there any agent fees?"
-        ]
+        suggestions: ["Documents for 35% subsidy", "Is EDP training mandatory?"]
       };
     }
 
-    // 5. Documents / Paperwork
-    if (q.includes('document') || q.includes('paper') || q.includes('caste certificate') || q.includes('aadhaar') || q.includes('proof')) {
+    if (q.includes('document') || q.includes('paper') || q.includes('proof') || q.includes('certificate')) {
       return {
-        text: `The standard pre-vetted document checklist for concessional schemes includes:\n\n1. **Caste Certificate:** Issued by competent Revenue Authority (Tehsildar/SDM)\n2. **Income Certificate:** Family income within ₹3.00 Lakhs p.a. (for apex schemes)\n3. **Identity & Address:** Aadhaar Card & PAN Card\n4. **Project Proposal / DPR:** Basic quotation of machinery or raw materials\n5. **Bank Passbook:** 6 months active bank statement.`,
+        text: `📋 **Mandatory Documents Checklist for SC Concessional Schemes:**\n\n1. **Caste Certificate (SC/ST/OBC)** issued by Sub-Divisional Magistrate (SDM) / Tehsildar\n2. **Income Certificate** showing family income within statutory ceiling\n3. **Aadhaar Card & PAN Card**\n4. **Bank Account Details** (Linked with Aadhaar for Direct Benefit Transfer)\n5. **Project Proposal / Quotation** of equipment/goods to be financed`,
         actionButtons: [
-          { label: "Start Profile Check", type: "wizard" }
+          { label: "Fill Citizen Profile", type: "wizard" },
+          { label: "View All Schemes", type: "schemes" }
         ],
-        suggestions: [
-          "How to calculate monthly EMI?",
-          "What if I don't have a DPR?",
-          "Show all 4,780+ schemes"
-        ]
+        suggestions: ["Where to submit physical papers?", "How to track application?"]
       };
     }
 
-    // 6. EMI / Calculation Savings
-    if (q.includes('emi') || q.includes('calculat') || q.includes('save') || q.includes('interest') || q.includes('comparison')) {
+    if (q.includes('partner') || q.includes('sca') || q.includes('channel') || q.includes('maharashtra') || q.includes('office') || q.includes('location')) {
       return {
-        text: `On a **₹2,00,000** business loan over 3 years:\n\n• **Commercial Bank (13.5%):** EMI is ~₹6,788/mo (Total Interest: ₹44,380)\n• **NSFDC Concessional (4.0%):** EMI is ~₹5,907/mo (Total Interest: ₹12,652)\n• **Your Total Savings:** **₹31,728** in direct interest savings!`,
+        text: `📍 **State Channelizing Agencies (SCAs):**\n\nSCAs are the official state-level implementation bodies of NSFDC & NBCFDC. For instance, in Maharashtra, **MPBCDC** handles SC loans, and **KVIC/DICs** process PMEGP subsidies. Applications submitted via BHUSEWA are automatically routed to your nearest district office.`,
         actionButtons: [
-          { label: "Open Interactive EMI Calculator", type: "calc" }
+          { label: "Open Interactive SCA Map", type: "locator" }
         ],
-        suggestions: [
-          "Find schemes matching my business",
-          "How do I track my submitted application?"
-        ]
+        suggestions: ["Find partners in Uttar Pradesh", "Find partners in Tamil Nadu"]
       };
     }
 
-    // Generic Fallback with smart recommendation
     return {
-      text: `I understand you're asking about *"_query_"*. Based on myScheme.gov.in guidelines, you can discover all Central & State schemes, calculate your exact concessional rate benefits, or locate your nearest accredited channel partner.`,
+      text: `Hello! **BHUSEWA AI** matches your enterprise needs against 4,770+ verified central and state schemes.\n\nYou can ask me about:\n• **4% NSFDC Loans** for SC entrepreneurs\n• **35% Capital Subsidies** under PMEGP\n• **Mahila Samriddhi Yojana** for women\n• **MoSJE Education Loans**\n• Locating your district **State Channelizing Agency (SCA)**`,
       actionButtons: [
-        { label: "Check Scheme Eligibility", type: "wizard" },
-        { label: "Browse All Schemes", type: "schemes" },
-        { label: "Locate SCA Partner", type: "locator" }
+        { label: "Start Profile Matcher", type: "wizard" },
+        { label: "Launch EMI Calculator", type: "calc" },
+        { label: "Find SCA Locator", type: "locator" }
       ],
       suggestions: [
-        "SC Concessional Loan (4%)",
-        "PMEGP 35% Capital Subsidy",
-        "Women Artisan Schemes",
-        "Nearest SCA Partner"
+        "Find schemes for SC Woman Artisan",
+        "How to get 4% NSFDC Concessional Loan?",
+        "Documents required for PMEGP 35% subsidy"
       ]
     };
   };
 
   const handleSendMessage = (textToSend) => {
-    const text = textToSend || inputText;
-    if (!text.trim()) return;
+    const query = textToSend || inputText;
+    if (!query.trim()) return;
 
     const userMessage = {
       id: Date.now(),
       sender: 'user',
-      text: text,
+      text: query,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     };
 
@@ -244,7 +210,7 @@ export default function MiniAssistant({
     setIsTyping(true);
 
     setTimeout(() => {
-      const botResponse = generateBotResponse(text);
+      const botResponse = generateBotResponse(query);
       const botMessage = {
         id: Date.now() + 1,
         sender: 'bot',
@@ -278,7 +244,7 @@ export default function MiniAssistant({
 
   return (
     <>
-      {/* 1. Floating Launch Button (Always on Top with High z-index & Glow Effect) */}
+      {/* 1. Floating Launch Button */}
       {!isWidgetOpen && (
         <div style={{
           position: 'fixed',
@@ -288,9 +254,9 @@ export default function MiniAssistant({
         }}>
           <button
             onClick={() => toggleOpen(true)}
-            aria-label="Open SchemeMitra AI Assistant"
+            aria-label="Open BhuSewa AI Assistant"
             style={{
-              background: 'linear-gradient(135deg, #136f38 0%, #0e5a2c 100%)',
+              background: 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)',
               color: '#ffffff',
               border: '2px solid #ffffff',
               borderRadius: '9999px',
@@ -298,7 +264,7 @@ export default function MiniAssistant({
               display: 'flex',
               alignItems: 'center',
               gap: '0.75rem',
-              boxShadow: '0 10px 30px rgba(19, 111, 56, 0.5), 0 0 0 4px rgba(22, 163, 74, 0.25)',
+              boxShadow: '0 10px 30px rgba(234, 88, 12, 0.5), 0 0 0 4px rgba(249, 115, 22, 0.25)',
               cursor: 'pointer',
               fontWeight: 800,
               fontSize: '0.94rem',
@@ -307,11 +273,11 @@ export default function MiniAssistant({
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-3px) scale(1.04)';
-              e.currentTarget.style.boxShadow = '0 14px 35px rgba(19, 111, 56, 0.6), 0 0 0 6px rgba(22, 163, 74, 0.35)';
+              e.currentTarget.style.boxShadow = '0 14px 35px rgba(234, 88, 12, 0.6), 0 0 0 6px rgba(249, 115, 22, 0.35)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              e.currentTarget.style.boxShadow = '0 10px 30px rgba(19, 111, 56, 0.5), 0 0 0 4px rgba(22, 163, 74, 0.25)';
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(234, 88, 12, 0.5), 0 0 0 4px rgba(249, 115, 22, 0.25)';
             }}
           >
             <div style={{
@@ -319,7 +285,7 @@ export default function MiniAssistant({
               height: '36px',
               borderRadius: '50%',
               background: '#ffffff',
-              color: '#136f38',
+              color: '#ea580c',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -330,11 +296,11 @@ export default function MiniAssistant({
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: 1.15 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                <span style={{ letterSpacing: '-0.01em' }}>SchemeMitra AI</span>
+                <span style={{ letterSpacing: '-0.01em' }}>BhuSewa AI</span>
                 <Sparkles size={14} color="#fde047" />
               </div>
-              <span style={{ fontSize: '0.72rem', color: '#dcfce7', fontWeight: 600 }}>
-                Ask myScheme Assistant
+              <span style={{ fontSize: '0.72rem', color: '#ffedd5', fontWeight: 600 }}>
+                Ask Scheme Assistant
               </span>
             </div>
 
@@ -362,8 +328,8 @@ export default function MiniAssistant({
           maxHeight: 'calc(100vh - 48px)',
           background: '#ffffff',
           borderRadius: '16px',
-          boxShadow: '0 25px 60px -10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(19, 111, 56, 0.2)',
-          border: '2px solid #c8e6c9',
+          boxShadow: '0 25px 60px -10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(234, 88, 12, 0.2)',
+          border: '2px solid #fed7aa',
           display: 'flex',
           flexDirection: 'column',
           zIndex: 999999,
@@ -373,7 +339,7 @@ export default function MiniAssistant({
           
           {/* Header Bar */}
           <div style={{
-            background: 'linear-gradient(135deg, #136f38 0%, #0e5a2c 100%)',
+            background: 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)',
             color: '#ffffff',
             padding: '0.9rem 1.1rem',
             display: 'flex',
@@ -387,7 +353,7 @@ export default function MiniAssistant({
                 height: '38px',
                 borderRadius: '50%',
                 background: '#ffffff',
-                color: '#136f38',
+                color: '#ea580c',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -397,14 +363,14 @@ export default function MiniAssistant({
               </div>
               <div>
                 <div style={{ fontWeight: 800, fontSize: '0.96rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <span>SchemeMitra AI</span>
-                  <span style={{ fontSize: '0.65rem', background: '#f97316', color: '#fff', padding: '1px 6px', borderRadius: '4px', fontWeight: 800 }}>
-                    OFFICIAL
+                  <span>BhuSewa AI</span>
+                  <span style={{ fontSize: '0.65rem', background: '#ffffff', color: '#ea580c', padding: '1px 6px', borderRadius: '4px', fontWeight: 800 }}>
+                    SIH26092
                   </span>
                 </div>
-                <div style={{ fontSize: '0.74rem', color: '#dcfce7', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                  <span className="live-indicator" style={{ width: '6px', height: '6px' }}></span>
-                  <span>Online • myScheme Government Assistant</span>
+                <div style={{ fontSize: '0.74rem', color: '#ffedd5', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                  <span className="live-indicator" style={{ width: '6px', height: '6px', background: '#fde047' }}></span>
+                  <span>Online • Government Welfare Assistant</span>
                 </div>
               </div>
             </div>
@@ -478,11 +444,11 @@ export default function MiniAssistant({
                       }}
                     >
                       <div style={{
-                        background: isBot ? '#ffffff' : '#136f38',
+                        background: isBot ? '#ffffff' : '#ea580c',
                         color: isBot ? '#111827' : '#ffffff',
                         padding: '0.85rem 1rem',
                         borderRadius: isBot ? '14px 14px 14px 2px' : '14px 14px 2px 14px',
-                        border: isBot ? '1px solid #e5e7eb' : 'none',
+                        border: isBot ? '1px solid #fed7aa' : 'none',
                         boxShadow: '0 2px 6px rgba(0, 0, 0, 0.04)',
                         fontSize: '0.85rem',
                         lineHeight: 1.55,
@@ -498,9 +464,9 @@ export default function MiniAssistant({
                                 key={idx}
                                 onClick={() => handleActionButtonClick(btn)}
                                 style={{
-                                  background: '#e8f5e9',
-                                  color: '#136f38',
-                                  border: '1px solid #c8e6c9',
+                                  background: '#fff7ed',
+                                  color: '#ea580c',
+                                  border: '1px solid #fed7aa',
                                   borderRadius: '9999px',
                                   padding: '0.35rem 0.85rem',
                                   fontSize: '0.78rem',
@@ -511,8 +477,8 @@ export default function MiniAssistant({
                                   gap: '0.35rem',
                                   transition: 'all 0.15s ease'
                                 }}
-                                onMouseEnter={(e) => e.currentTarget.style.background = '#dcfce7'}
-                                onMouseLeave={(e) => e.currentTarget.style.background = '#e8f5e9'}
+                                onMouseEnter={(e) => e.currentTarget.style.background = '#ffedd5'}
+                                onMouseLeave={(e) => e.currentTarget.style.background = '#fff7ed'}
                               >
                                 <span>{btn.label}</span>
                                 <ArrowRight size={13} />
@@ -553,7 +519,7 @@ export default function MiniAssistant({
                               onClick={() => handleSendMessage(sug)}
                               style={{
                                 background: '#ffffff',
-                                border: '1px solid #cbd5e1',
+                                border: '1px solid #fed7aa',
                                 borderRadius: '9999px',
                                 padding: '0.3rem 0.75rem',
                                 fontSize: '0.75rem',
@@ -564,12 +530,12 @@ export default function MiniAssistant({
                                 transition: 'all 0.15s ease'
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor = '#136f38';
-                                e.currentTarget.style.color = '#136f38';
-                                e.currentTarget.style.background = '#f0fdf4';
+                                e.currentTarget.style.borderColor = '#ea580c';
+                                e.currentTarget.style.color = '#ea580c';
+                                e.currentTarget.style.background = '#fff7ed';
                               }}
                               onMouseLeave={(e) => {
-                                e.currentTarget.style.borderColor = '#cbd5e1';
+                                e.currentTarget.style.borderColor = '#fed7aa';
                                 e.currentTarget.style.color = '#334155';
                                 e.currentTarget.style.background = '#ffffff';
                               }}
@@ -586,8 +552,8 @@ export default function MiniAssistant({
 
                 {isTyping && (
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#64748b', fontSize: '0.78rem', fontStyle: 'italic', paddingLeft: '0.5rem' }}>
-                    <Bot size={15} color="#136f38" />
-                    <span>SchemeMitra is formulating verified response...</span>
+                    <Bot size={15} color="#ea580c" />
+                    <span>BhuSewa AI is calculating verified benefits...</span>
                   </div>
                 )}
 
@@ -624,7 +590,7 @@ export default function MiniAssistant({
                       outline: 'none',
                       color: '#111827'
                     }}
-                    onFocus={(e) => e.target.style.borderColor = '#136f38'}
+                    onFocus={(e) => e.target.style.borderColor = '#ea580c'}
                     onBlur={(e) => e.target.style.borderColor = '#cbd5e1'}
                   />
 
@@ -658,7 +624,7 @@ export default function MiniAssistant({
                       width: '38px',
                       height: '38px',
                       borderRadius: '50%',
-                      background: inputText.trim() ? '#136f38' : '#e2e8f0',
+                      background: inputText.trim() ? '#ea580c' : '#e2e8f0',
                       border: 'none',
                       color: inputText.trim() ? '#ffffff' : '#94a3b8',
                       display: 'flex',
@@ -673,7 +639,7 @@ export default function MiniAssistant({
                 </form>
 
                 <div style={{ textAlign: 'center', fontSize: '0.68rem', color: '#94a3b8' }}>
-                  Powered by Government of India Open Data & SamriddhiAI Logic Engine
+                  Powered by Government of India Open Data & BHUSEWA Logic Engine
                 </div>
               </div>
             </>

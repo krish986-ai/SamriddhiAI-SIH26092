@@ -30,11 +30,11 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
             width: '36px',
             height: '36px',
             borderRadius: '10px',
-            background: '#ecfdf5',
+            background: '#fff7ed',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#15803d'
+            color: '#ea580c'
           }}>
             <Calculator size={20} />
           </div>
@@ -48,8 +48,8 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(320px, 1fr) minmax(400px, 1.3fr)', gap: '1.5rem', alignItems: 'start' }}>
         
         {/* Sliders and Controls */}
-        <div className="gov-card" style={{ padding: '1.6rem', background: '#ffffff' }}>
-          <h3 style={{ fontSize: '1.1rem', marginBottom: '1.2rem', color: '#15803d', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+        <div className="gov-card" style={{ padding: '1.6rem', background: '#ffffff', border: '1px solid #fed7aa' }}>
+          <h3 style={{ fontSize: '1.1rem', marginBottom: '1.2rem', color: '#ea580c', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
             <span>Loan & Scheme Parameters</span>
           </h3>
 
@@ -59,7 +59,7 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
             <div className="form-group">
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <label className="form-label">{t.calcLoanAmount}</label>
-                <span style={{ fontSize: '1rem', fontWeight: 800, color: '#15803d' }}>
+                <span style={{ fontSize: '1rem', fontWeight: 800, color: '#ea580c' }}>
                   ₹{(principal).toLocaleString('en-IN')} ({(principal / 100000).toFixed(1)} Lakhs)
                 </span>
               </div>
@@ -70,7 +70,7 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
                 step="50000"
                 value={principal}
                 onChange={(e) => setPrincipal(parseInt(e.target.value))}
-                style={{ width: '100%' }}
+                style={{ width: '100%', accentColor: '#ea580c' }}
               />
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#64748b' }}>
                 <span>₹50,000 (Micro)</span>
@@ -94,17 +94,17 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
                 step="1"
                 value={tenureYears}
                 onChange={(e) => setTenureYears(parseInt(e.target.value))}
-                style={{ width: '100%' }}
+                style={{ width: '100%', accentColor: '#1e40af' }}
               />
             </div>
 
             {/* Concessional Interest Rate */}
             <div className="form-group">
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <label className="form-label" style={{ color: '#15803d' }}>
+                <label className="form-label" style={{ color: '#ea580c' }}>
                   {t.concessionalRateLabel}
                 </label>
-                <span style={{ fontSize: '0.95rem', fontWeight: 700, color: '#15803d' }}>
+                <span style={{ fontSize: '0.95rem', fontWeight: 700, color: '#ea580c' }}>
                   {concessionalRate}% p.a.
                 </span>
               </div>
@@ -115,7 +115,7 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
                 step="0.5"
                 value={concessionalRate}
                 onChange={(e) => setConcessionalRate(parseFloat(e.target.value))}
-                style={{ width: '100%' }}
+                style={{ width: '100%', accentColor: '#ea580c' }}
               />
             </div>
 
@@ -136,7 +136,7 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
                 step="0.5"
                 value={commercialRate}
                 onChange={(e) => setCommercialRate(parseFloat(e.target.value))}
-                style={{ width: '100%' }}
+                style={{ width: '100%', accentColor: '#dc2626' }}
               />
             </div>
 
@@ -144,7 +144,7 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
             <div className="form-group">
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <label className="form-label">Government Capital Subsidy / Margin Support</label>
-                <span style={{ fontSize: '0.95rem', fontWeight: 700, color: '#b45309' }}>
+                <span style={{ fontSize: '0.95rem', fontWeight: 700, color: '#c2410c' }}>
                   {subsidyPercent}% (₹{(comparison.subsidyAmount).toLocaleString('en-IN')})
                 </span>
               </div>
@@ -155,7 +155,7 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
                 step="5"
                 value={subsidyPercent}
                 onChange={(e) => setSubsidyPercent(parseInt(e.target.value))}
-                style={{ width: '100%' }}
+                style={{ width: '100%', accentColor: '#c2410c' }}
               />
             </div>
 
@@ -168,18 +168,18 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
           {/* Big Savings Card */}
           <div className="gov-card" style={{
             padding: '1.8rem',
-            background: 'linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%)',
-            border: '2px solid #bbf7d0',
-            boxShadow: '0 4px 14px rgba(21, 128, 61, 0.1)'
+            background: 'linear-gradient(135deg, #fff7ed 0%, #ffffff 100%)',
+            border: '2px solid #fed7aa',
+            boxShadow: '0 4px 14px rgba(234, 88, 12, 0.15)'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
-              <Sparkles size={18} color="#15803d" />
-              <span style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', color: '#15803d', letterSpacing: '0.04em' }}>
+              <Sparkles size={18} color="#ea580c" />
+              <span style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', color: '#ea580c', letterSpacing: '0.04em' }}>
                 Total Financial Benefit for Entrepreneur
               </span>
             </div>
 
-            <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#15803d', lineHeight: 1.1, marginBottom: '0.5rem' }}>
+            <div style={{ fontSize: '2.5rem', fontWeight: 800, color: '#ea580c', lineHeight: 1.1, marginBottom: '0.5rem' }}>
               ₹{(comparison.totalFinancialBenefit).toLocaleString('en-IN')}
             </div>
 
@@ -212,14 +212,14 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
             </div>
 
             {/* Concessional Option */}
-            <div className="gov-card" style={{ padding: '1.25rem', border: '1px solid #bbf7d0', background: '#f0fdf4' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#15803d', textTransform: 'uppercase', marginBottom: '0.6rem' }}>
+            <div className="gov-card" style={{ padding: '1.25rem', border: '1px solid #fed7aa', background: '#fff7ed' }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#ea580c', textTransform: 'uppercase', marginBottom: '0.6rem' }}>
                 Concessional Gov. Scheme
               </div>
               
               <div style={{ marginBottom: '0.8rem' }}>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{t.monthlyEmiConcessional}</div>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#15803d' }}>
+                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ea580c' }}>
                   ₹{(comparison.concessional.monthlyEmi).toLocaleString('en-IN')}
                 </div>
               </div>
@@ -227,28 +227,28 @@ export default function FinancialCalc({ defaultScheme, currentLang }) {
               <div style={{ fontSize: '0.78rem', color: '#475569', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                 <div>Subsidized Rate: <strong>{concessionalRate}%</strong></div>
                 <div>Total Interest: <strong>₹{(comparison.concessional.totalInterest).toLocaleString('en-IN')}</strong></div>
-                <div>Subsidy: <strong style={{ color: '#b45309' }}>₹{(comparison.subsidyAmount).toLocaleString('en-IN')}</strong></div>
+                <div>Subsidy: <strong style={{ color: '#c2410c' }}>₹{(comparison.subsidyAmount).toLocaleString('en-IN')}</strong></div>
               </div>
             </div>
 
           </div>
 
           {/* Monthly Savings Bar */}
-          <div className="gov-card" style={{ padding: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.8rem', background: '#ffffff' }}>
+          <div className="gov-card" style={{ padding: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.8rem', background: '#ffffff', border: '1px solid #fed7aa' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: '#ecfdf5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#15803d' }}>
+              <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: '#fff7ed', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ea580c' }}>
                 <TrendingDown size={18} />
               </div>
               <div>
                 <div style={{ fontSize: '0.75rem', color: '#64748b' }}>{t.monthlySavings}</div>
-                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#15803d' }}>
+                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ea580c' }}>
                   +₹{(comparison.monthlySavings).toLocaleString('en-IN')} / month
                 </div>
               </div>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#475569', fontSize: '0.78rem' }}>
-              <CheckCircle2 size={14} color="#15803d" />
+              <CheckCircle2 size={14} color="#ea580c" />
               <span>Debt Service Coverage Ratio (DSCR) &gt; 2.1</span>
             </div>
           </div>

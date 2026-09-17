@@ -50,6 +50,7 @@ export default function SchemeDetailModal({
         padding: '2rem',
         position: 'relative',
         background: '#ffffff',
+        border: '1.5px solid #fed7aa',
         boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
       }}>
         
@@ -60,9 +61,9 @@ export default function SchemeDetailModal({
             position: 'absolute',
             top: '1.25rem',
             right: '1.25rem',
-            background: '#f1f5f9',
-            border: 'none',
-            color: '#64748b',
+            background: '#fff7ed',
+            border: '1px solid #fed7aa',
+            color: '#ea580c',
             borderRadius: '50%',
             width: '32px',
             height: '32px',
@@ -79,9 +80,9 @@ export default function SchemeDetailModal({
         <div style={{ marginBottom: '1.5rem' }}>
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
             <span className="badge badge-blue">{scheme.category}</span>
-            <span className="badge badge-green">Concessional {scheme.concessionalRate}% p.a.</span>
+            <span className="badge badge-orange">Concessional {scheme.concessionalRate}% p.a.</span>
             {scheme.subsidyPercentage > 0 && (
-              <span className="badge badge-amber">{scheme.subsidyPercentage}% Subsidy</span>
+              <span className="badge badge-orange">{scheme.subsidyPercentage}% Subsidy</span>
             )}
           </div>
 
@@ -100,9 +101,9 @@ export default function SchemeDetailModal({
             </div>
           </div>
 
-          <div style={{ background: '#f8fafc', padding: '0.85rem', borderRadius: '10px', border: '1px solid #e2e8f0' }}>
+          <div style={{ background: '#f8fafc', padding: '0.85rem', borderRadius: '10px', border: '1px solid #fed7aa' }}>
             <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Max Project Cost</div>
-            <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#15803d', marginTop: '2px' }}>
+            <div style={{ fontSize: '0.95rem', fontWeight: 700, color: '#ea580c', marginTop: '2px' }}>
               ₹{(scheme.maxLoanAmount / 100000).toFixed(1)} Lakhs
             </div>
           </div>
@@ -117,7 +118,7 @@ export default function SchemeDetailModal({
 
         {/* Detailed Benefits */}
         <div style={{ marginBottom: '1.5rem' }}>
-          <h4 style={{ fontSize: '0.95rem', marginBottom: '0.6rem', color: '#15803d' }}>Key Scheme Benefits</h4>
+          <h4 style={{ fontSize: '0.95rem', marginBottom: '0.6rem', color: '#ea580c' }}>Key Scheme Benefits</h4>
           <ul style={{ paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.4rem', fontSize: '0.85rem', color: '#334155' }}>
             {scheme.keyBenefits.map((benefit, i) => (
               <li key={i}>{benefit}</li>
@@ -126,15 +127,15 @@ export default function SchemeDetailModal({
         </div>
 
         {/* Required Documents Checklist */}
-        <div style={{ marginBottom: '1.5rem', background: '#f0fdf4', padding: '1rem', borderRadius: '10px', border: '1px solid #bbf7d0' }}>
-          <h4 style={{ fontSize: '0.95rem', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#15803d' }}>
+        <div style={{ marginBottom: '1.5rem', background: '#fff7ed', padding: '1rem', borderRadius: '10px', border: '1px solid #fed7aa' }}>
+          <h4 style={{ fontSize: '0.95rem', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#ea580c' }}>
             <FileText size={16} />
             <span>Mandatory Document Checklist for SCA Verification</span>
           </h4>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
             {scheme.requiredDocuments.map((doc, idx) => (
               <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem', color: '#1e293b' }}>
-                <CheckCircle2 size={14} color="#15803d" />
+                <CheckCircle2 size={14} color="#ea580c" />
                 <span>{doc}</span>
               </div>
             ))}
@@ -143,7 +144,7 @@ export default function SchemeDetailModal({
 
         {/* Authorized Channel Partners */}
         <div style={{ marginBottom: '1.8rem' }}>
-          <h4 style={{ fontSize: '0.95rem', marginBottom: '0.5rem', color: '#b45309', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          <h4 style={{ fontSize: '0.95rem', marginBottom: '0.5rem', color: '#c2410c', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
             <Building2 size={16} />
             <span>Approved Channel Partners & Routing</span>
           </h4>
@@ -152,7 +153,7 @@ export default function SchemeDetailModal({
           </p>
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
             {scheme.channelPartners.map((cp, idx) => (
-              <span key={idx} className="badge badge-amber" style={{ fontSize: '0.75rem' }}>
+              <span key={idx} className="badge badge-orange" style={{ fontSize: '0.75rem' }}>
                 {cp}
               </span>
             ))}
@@ -164,7 +165,7 @@ export default function SchemeDetailModal({
           <button onClick={onClose} className="btn btn-secondary">
             Cancel
           </button>
-          <button onClick={handleApply} className="btn btn-gov-green" style={{ padding: '0.65rem 1.4rem' }}>
+          <button onClick={handleApply} className="btn btn-gov-orange" style={{ padding: '0.65rem 1.4rem' }}>
             <ShieldCheck size={16} />
             <span>Submit Application & Generate Tracking ID</span>
           </button>

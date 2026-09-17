@@ -40,7 +40,7 @@ def create_large_document():
         header = section.header
         hp = header.paragraphs[0]
         hp.alignment = WD_ALIGN_PARAGRAPH.RIGHT
-        hrun = hp.add_run("SamriddhiAI | SIH 2026 Problem Statement SIH26092 | MoSJE")
+        hrun = hp.add_run("BHUSEWA AI | SIH 2026 Problem Statement SIH26092 | MoSJE")
         hrun.font.size = Pt(8.5)
         hrun.font.color.rgb = RGBColor(100, 116, 139)
         
@@ -51,11 +51,12 @@ def create_large_document():
         frun.font.size = Pt(8.5)
         frun.font.color.rgb = RGBColor(148, 163, 184)
 
-    # Styles Setup
-    c_green = RGBColor(19, 111, 56)      # #136f38
+    # Styles Setup - Warm Orange & Indian Saffron Theme
+    c_orange = RGBColor(234, 88, 12)     # #ea580c (BHUSEWA Orange)
+    c_bright_orange = RGBColor(249, 115, 22) # #f97316
     c_navy = RGBColor(17, 24, 39)        # #111827
     c_slate = RGBColor(71, 85, 105)      # #475569
-    c_orange = RGBColor(234, 88, 12)     # #ea580c
+    c_purple = RGBColor(88, 80, 236)     # #5850ec (ENGORIO)
 
     def add_title_cover():
         p_space = doc.add_paragraph()
@@ -79,10 +80,10 @@ def create_large_document():
 
         p_main = doc.add_paragraph()
         p_main.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        r_main = p_main.add_run("SamriddhiAI")
+        r_main = p_main.add_run("BHUSEWA AI")
         r_main.font.size = Pt(38)
         r_main.font.bold = True
-        r_main.font.color.rgb = c_green
+        r_main.font.color.rgb = c_orange
         p_main.paragraph_format.space_after = Pt(12)
 
         p_sub = doc.add_paragraph()
@@ -110,7 +111,7 @@ def create_large_document():
             ("Project Lead & Organization", "Team Innovision | Engineered by ENGORIO"),
             ("Design Alignment", "myScheme.gov.in Official ENGORIO Design System (GIGW 3.0 Compliant)"),
             ("Target Beneficiaries", "SC, ST, OBC, Women, De-Notified Tribes, Safai Karamcharis, Artisans"),
-            ("Supported Central Apex Corps", "NSFDC, NBCFDC, NSKFDC, NSTFDC, Stand-Up India, PMEGP, PM-AJAY"),
+            ("Supported Central Apex Corps", "NSFDC, NBCFDC, NSKFDC, NSTFDC, Stand-Up India, PMEGP, PM-AJAY, MoSJE"),
             ("Report Classification", "Comprehensive Technical Specification & National Deployment Blueprint")
         ]
         for idx, (k, v) in enumerate(meta):
@@ -123,14 +124,14 @@ def create_large_document():
             r1 = p1.add_run(k)
             r1.font.bold = True
             r1.font.size = Pt(9.5)
-            r1.font.color.rgb = c_green
+            r1.font.color.rgb = c_orange
             
             p2 = c2.paragraphs[0]
             r2 = p2.add_run(v)
             r2.font.size = Pt(9.5)
             r2.font.color.rgb = c_navy
             
-            set_cell_background(c1, "F0FDF4")
+            set_cell_background(c1, "FFF7ED")
             set_cell_background(c2, "F8FAFC")
             set_cell_margins(c1, top=60, bottom=60, left=100, right=100)
             set_cell_margins(c2, top=60, bottom=60, left=100, right=100)
@@ -145,7 +146,7 @@ def create_large_document():
         r = h.add_run(text)
         r.font.size = Pt(18)
         r.font.bold = True
-        r.font.color.rgb = c_green
+        r.font.color.rgb = c_orange
         return h
 
     def add_heading_2(text):
@@ -167,7 +168,7 @@ def create_large_document():
         r = h.add_run(text)
         r.font.size = Pt(11.5)
         r.font.bold = True
-        r.font.color.rgb = c_orange
+        r.font.color.rgb = c_bright_orange
         return h
 
     def add_body(text, space_after=6, italic=False):
@@ -185,7 +186,7 @@ def create_large_document():
         tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
         cell = tbl.rows[0].cells[0]
         cell.width = Inches(6.5)
-        set_cell_background(cell, "F0FDF4")
+        set_cell_background(cell, "FFF7ED")
         set_cell_margins(cell, top=100, bottom=100, left=150, right=150)
         
         p = cell.paragraphs[0]
@@ -193,7 +194,7 @@ def create_large_document():
         r_t = p.add_run(f"📌 {title}\n")
         r_t.font.bold = True
         r_t.font.size = Pt(11)
-        r_t.font.color.rgb = c_green
+        r_t.font.color.rgb = c_orange
         
         r_b = p.add_run(text)
         r_b.font.size = Pt(10)
@@ -211,7 +212,7 @@ def create_large_document():
         ("Chapter 1: Executive Summary & Strategic National Context", "4"),
         ("Chapter 2: Problem Analysis: Information Asymmetry & The Credit Trap", "8"),
         ("Chapter 3: Regulatory Framework, Apex Corporations & Scheme Landscape", "14"),
-        ("Chapter 4: SamriddhiAI Architectural Design & Technology Stack", "20"),
+        ("Chapter 4: BHUSEWA AI Architectural Design & Technology Stack", "20"),
         ("Chapter 5: Deterministic AI Triage Engine & Algorithmic Formulations", "26"),
         ("Chapter 6: Automated Government Scheme Ingestion Pipeline", "32"),
         ("Chapter 7: ENGORIO Accessibility Suite (GIGW 3.0 Compliant)", "38"),
@@ -225,8 +226,8 @@ def create_large_document():
     tbl_toc.alignment = WD_TABLE_ALIGNMENT.CENTER
     tbl_toc.rows[0].cells[0].paragraphs[0].add_run("Chapter / Section Title").font.bold = True
     tbl_toc.rows[0].cells[1].paragraphs[0].add_run("Starting Page").font.bold = True
-    set_cell_background(tbl_toc.rows[0].cells[0], "136F38")
-    set_cell_background(tbl_toc.rows[0].cells[1], "136F38")
+    set_cell_background(tbl_toc.rows[0].cells[0], "EA580C")
+    set_cell_background(tbl_toc.rows[0].cells[1], "EA580C")
     tbl_toc.rows[0].cells[0].paragraphs[0].runs[0].font.color.rgb = RGBColor(255, 255, 255)
     tbl_toc.rows[0].cells[1].paragraphs[0].runs[0].font.color.rgb = RGBColor(255, 255, 255)
     
@@ -256,15 +257,15 @@ def create_large_document():
 
     add_body("Despite the availability of these heavily subsidized funds, empirical field assessments demonstrate that an overwhelming majority of target beneficiaries—over 74% in rural and semi-urban districts—continue to obtain capital from unorganized moneylenders and informal credit rings at predatory annual percentage rates (APRs) ranging from 24% to 60%. This catastrophic failure of policy transmission is not a crisis of capital allocation, but fundamentally a failure of digital discovery, personalized eligibility triage, cognitive accessibility, and direct channel partner routing.")
 
-    add_callout("Vision of SamriddhiAI", "To engineer a unified, zero-hallucination, AI-driven digital triage and channel partner dispatch platform that empowers every marginalized citizen in India to discover, evaluate, calculate concessional financial benefits, and apply for government schemes within 300 milliseconds in their native dialect—fully compliant with myScheme.gov.in and GIGW 3.0 standards.")
+    add_callout("Vision of BHUSEWA AI", "To engineer a unified, zero-hallucination, AI-driven digital triage and channel partner dispatch platform that empowers every marginalized citizen in India to discover, evaluate, calculate concessional financial benefits, and apply for government schemes within 300 milliseconds in their native dialect—fully compliant with myScheme.gov.in and GIGW 3.0 standards.")
 
-    add_heading_2("1.2 Key Objectives of the SamriddhiAI Platform")
-    add_body("To directly address the operational scope defined in Smart India Hackathon Problem Statement SIH26092, SamriddhiAI has been built upon five foundational engineering pillars:")
+    add_heading_2("1.2 Key Objectives of the BHUSEWA AI Platform")
+    add_body("To directly address the operational scope defined in Smart India Hackathon Problem Statement SIH26092, BHUSEWA AI has been built upon five foundational engineering pillars:")
     
     objectives = [
         ("Sub-300ms Deterministic AI Triage Engine", "A high-precision rule evaluation engine that computes multi-variable citizen profiles across social caste categories, annual household income limits, gender, age, project budget, and geographical state jurisdictions without LLM hallucinations."),
         ("Automated Official Government Scheme Ingestion", "An automated background synchronization engine (GovernmentSchemeSyncEngine) that regularly polls official portals (data.gov.in, api.myscheme.gov.in) to ingest, normalize, and hot-reload newly announced schemes without server downtime."),
-        ("Multilingual SchemeMitra AI Assistant", "An intelligent floating conversational assistant supporting Web Speech Voice Recognition (STT) and Natural Speech Synthesis (TTS) in English, Hindi, Marathi, and Tamil to bridge rural literacy gaps."),
+        ("Multilingual BhuSewa AI Assistant", "An intelligent floating conversational assistant supporting Web Speech Voice Recognition (STT) and Natural Speech Synthesis (TTS) in English, Hindi, Marathi, and Tamil to bridge rural literacy gaps."),
         ("ENGORIO GIGW 3.0 Accessibility Suite", "A complete 12-tool accessibility overlay offering ADHD spotlight masks, Dyslexia-friendly typography, 4-stage line spacing, high-contrast dark mode, and Ctrl+F2 keyboard shortcuts."),
         ("Direct State Channelizing Agency (SCA) Dispatch", "An interactive geo-spatial locator and officer verification dashboard enabling 1-click application payload dispatch directly to district nodal officers across 36 States and Union Territories.")
     ]
@@ -293,7 +294,7 @@ def create_large_document():
     headers = ["Parameter / Metric", "Apex Concessional Scheme (NSFDC / NBCFDC)", "Commercial Bank Lending (Mudra / Personal)", "Informal Moneylender (Unorganized Market)"]
     for idx, h in enumerate(headers):
         tbl_comp.rows[0].cells[idx].paragraphs[0].add_run(h).font.bold = True
-        set_cell_background(tbl_comp.rows[0].cells[idx], "136F38")
+        set_cell_background(tbl_comp.rows[0].cells[idx], "EA580C")
         tbl_comp.rows[0].cells[idx].paragraphs[0].runs[0].font.color.rgb = RGBColor(255, 255, 255)
         tbl_comp.rows[0].cells[idx].paragraphs[0].runs[0].font.size = Pt(8.5)
 
@@ -345,20 +346,20 @@ def create_large_document():
     # ----------------------------------------------------
     # CHAPTER 4
     # ----------------------------------------------------
-    add_heading_1("Chapter 4: SamriddhiAI Architectural Design & Tech Stack")
+    add_heading_1("Chapter 4: BHUSEWA AI Architectural Design & Tech Stack")
     add_heading_2("4.1 System Architecture Overview")
-    add_body("SamriddhiAI is architected as an ultra-high performance, single-page progressive web application (PWA) coupled with deterministic rule engines, automated background synchronization workers, and real-time voice synthesis runtimes.")
+    add_body("BHUSEWA AI is architected as an ultra-high performance, single-page progressive web application (PWA) coupled with deterministic rule engines, automated background synchronization workers, and real-time voice synthesis runtimes.")
 
     add_body("Core Technology Stack Specifications:")
     add_body("• Frontend Framework: React 18 with modern Hook state paradigms and sub-500ms reactive rendering pipelines.\n"
              "• Build & Tooling Engine: Vite 8.3 with Rollup AST code-splitting and asset tree-shaking producing compressed bundles under 165 kB gzip.\n"
-             "• Styling & Design System: Vanilla CSS custom tokens adhering strictly to myScheme.gov.in color palettes, typography (Plus Jakarta Sans, Inter), and micro-animations.\n"
+             "• Styling & Design System: Vanilla CSS custom tokens adhering strictly to myScheme.gov.in layout with Indian Saffron/Warm Orange branding (#ea580c, #c2410c), typography (Plus Jakarta Sans, Inter), and micro-animations.\n"
              "• Voice AI Engine: Web Speech API (SpeechRecognition + SpeechSynthesis) with polyfills for vernacular speech processing across Hindi, Marathi, and Tamil.\n"
              "• Ingestion Worker: Node.js / ES6 asynchronous REST pipeline with schema normalization and local storage persistence.\n"
              "• Accessibility Core: ENGORIO GIGW 3.0 assistive engine.")
 
     add_heading_2("4.2 End-to-End Data Pipeline Flow")
-    add_body("1. User Profile Formulation: The citizen inputs demographic details (caste, income, gender, age, state, sector, loan required) or speaks their requirements to SchemeMitra AI.\n"
+    add_body("1. User Profile Formulation: The citizen inputs demographic details (caste, income, gender, age, state, sector, loan required) or speaks their requirements to BhuSewa AI.\n"
              "2. Deterministic AI Rule Matching: The rule engine evaluates all active schemes in memory against eligibility vectors in under 280ms.\n"
              "3. Amortization & Subsidy Computation: The financial model calculates DBT grants, net loan requirements, and monthly EMIs.\n"
              "4. Geo-Spatial Dispatch: The system maps the citizen's state and district to the respective State Channelizing Agency.\n"
@@ -371,7 +372,7 @@ def create_large_document():
     # ----------------------------------------------------
     add_heading_1("Chapter 5: Deterministic AI Triage Engine & Algorithmic Formulations")
     add_heading_2("5.1 Mathematical Formulation of Scheme Match Scoring")
-    add_body("Unlike probabilistic large language models which suffer from stochastic hallucinations and non-deterministic logic, SamriddhiAI implements a deterministic multi-criteria scoring algorithm grounded in official statutory gazettes.")
+    add_body("Unlike probabilistic large language models which suffer from stochastic hallucinations and non-deterministic logic, BHUSEWA AI implements a deterministic multi-criteria scoring algorithm grounded in official statutory gazettes.")
 
     add_body("Let a citizen profile be represented as an input vector:")
     add_body("P = (C, I, G, A, S, L, E, B, R)")
@@ -401,16 +402,16 @@ def create_large_document():
     # ----------------------------------------------------
     add_heading_1("Chapter 6: Automated Government Scheme Ingestion Pipeline")
     add_heading_2("6.1 The GovernmentSchemeSyncEngine Architecture")
-    add_body("A vital capability of SamriddhiAI is its continuous ingestion pipeline that solves the problem of obsolete scheme catalogs. When central ministries or state departments launch new schemes or amend interest subventions, the system automatically synchronizes and activates the new policies.")
+    add_body("A vital capability of BHUSEWA AI is its continuous ingestion pipeline that solves the problem of obsolete scheme catalogs. When central ministries or state departments launch new schemes or amend interest subventions, the system automatically synchronizes and activates the new policies.")
 
     add_body("Pipeline Architecture Components:")
     add_body("1. REST Connector Pool: Regularly polls open government data APIs (data.gov.in, api.myscheme.gov.in) alongside secure ministry webhooks.\n"
-             "2. Schema Normalization Layer: Raw incoming payloads with inconsistent field names (e.g., 'nodal_min', 'ministryName', 'dept_code') are cleaned and transformed into the standard SamriddhiAI JSON Schema.\n"
+             "2. Schema Normalization Layer: Raw incoming payloads with inconsistent field names (e.g., 'nodal_min', 'ministryName', 'dept_code') are cleaned and transformed into the standard BHUSEWA AI JSON Schema.\n"
              "3. Content Hash Deduplication: Computes SHA-256 digests of scheme descriptions and criteria to prevent duplicate entries.\n"
              "4. Active State Injection: Ingested schemes are marked with 'isLiveSynced: true' and immediately injected into the live in-memory catalog.\n"
              "5. Admin & Cron Synchronization: Accessible via the Officer Sign In portal with real-time sync indicators and manual trigger controls.")
 
-    add_callout("Live Ingested Scheme Examples", "• PM-AJAY (Pradhan Mantri Anusuchit Jaati Abhyuday Yojana): Capital grants up to ₹50,000 for SC micro-enterprises with 4.5% interest subvention.\n• NBCFDC Green Business Scheme: Concessional 4.0% loans up to ₹30 Lakhs for battery-operated e-rickshaws and solar micro-grids.")
+    add_callout("Live Ingested Scheme Examples", "• PM-AJAY (Pradhan Mantri Anusuchit Jaati Abhyuday Yojana): Capital grants up to ₹50,000 for SC micro-enterprises with 4.5% interest subvention.\n• NBCFDC Green Business Scheme: Concessional 4.0% loans up to ₹30 Lakhs for battery-operated e-rickshaws and solar micro-grids.\n• MoSJE Educational Loan Scheme: Concessional higher education credit at 4% p.a. for specialized degrees.")
 
     doc.add_page_break()
 
@@ -419,7 +420,7 @@ def create_large_document():
     # ----------------------------------------------------
     add_heading_1("Chapter 7: ENGORIO Accessibility Suite (GIGW 3.0 Compliant)")
     add_heading_2("7.1 GIGW 3.0 & WCAG 2.1 AAA Compliance")
-    add_body("In compliance with the Guidelines for Indian Government Websites (GIGW 3.0) and the Rights of Persons with Disabilities Act, 2016, SamriddhiAI features an integrated 12-tool accessibility modal engineered by ENGORIO.")
+    add_body("In compliance with the Guidelines for Indian Government Websites (GIGW 3.0) and the Rights of Persons with Disabilities Act, 2016, BHUSEWA AI features an integrated 12-tool accessibility modal engineered by ENGORIO.")
 
     add_body("The ENGORIO Accessibility Modal incorporates 12 specialized assistive tools in a 3×4 grid:")
     
@@ -444,7 +445,7 @@ def create_large_document():
              "• Right-Edge Minimalist Trigger: Docked on the right screen edge with hover expansion effects.\n"
              "• Global Keyboard Shortcut: Pressing 'Ctrl+F2' anywhere toggles the modal.\n"
              "• State Persistence: Preferences are persisted in browser storage and can be restored via 'Reset All Settings'.\n"
-             "• High-Performance Dark Mode: Rich slate palette (#0b1120 canvas, #1e293b surface cards, inverted emblems, glowing green badges).")
+             "• High-Performance Dark Mode: Rich slate palette (#0b1120 canvas, #1e293b surface cards, inverted emblems, glowing orange badges).")
 
     doc.add_page_break()
 
@@ -452,10 +453,11 @@ def create_large_document():
     # CHAPTER 8: SCHEME CATALOGUE
     # ----------------------------------------------------
     add_heading_1("Chapter 8: Comprehensive National Scheme Catalogue")
-    add_body("Below is the detailed catalog of flagship central and apex corporation schemes indexed in the SamriddhiAI platform:")
+    add_body("Below is the detailed catalog of flagship central and apex corporation schemes indexed in the BHUSEWA AI platform:")
 
     schemes = [
         ("Mahila Samriddhi Yojana (Exclusive for SC Women)", "NSFDC / MoSJE", "4.0% p.a.", "₹1,40,000", "SC Women", "Micro-enterprise, retail, tailoring, dairy"),
+        ("MoSJE Concessional Educational Loan Scheme", "NSFDC / MoSJE", "4.0% p.a.", "₹20,00,000", "SC Students (Professional/Tech)", "Higher education in Engineering, Medicine, Management"),
         ("New Swarnima Scheme for Backward Classes Women", "NBCFDC / MoSJE", "5.0% p.a.", "₹2,00,000", "OBC Women (Income < ₹3 Lakhs)", "Handicrafts, beauty wellness, food processing"),
         ("Stand-Up India Scheme for SC/ST & Women", "SIDBI / MoF", "7.25% (Base Rate + 3%)", "₹1,00,00,000 (1 Crore)", "SC / ST / Women Entrepreneurs", "Greenfield manufacturing, services, trading"),
         ("PMEGP Margin Money Capital Subsidy Scheme", "KVIC / Ministry of MSME", "Normal Bank Rate (Less 35% DBT)", "₹50,00,000 (Manufacturing)", "SC/ST/OBC/Women (Special Cat)", "Agro-processing, light engineering, textiles"),
@@ -472,7 +474,7 @@ def create_large_document():
     s_heads = ["Scheme Name", "Nodal Agency", "Interest Rate", "Max Loan Cap", "Target Caste & Gender", "Eligible Sectors"]
     for idx, h in enumerate(s_heads):
         tbl_sch.rows[0].cells[idx].paragraphs[0].add_run(h).font.bold = True
-        set_cell_background(tbl_sch.rows[0].cells[idx], "136F38")
+        set_cell_background(tbl_sch.rows[0].cells[idx], "EA580C")
         tbl_sch.rows[0].cells[idx].paragraphs[0].runs[0].font.color.rgb = RGBColor(255, 255, 255)
         tbl_sch.rows[0].cells[idx].paragraphs[0].runs[0].font.size = Pt(8.0)
 
@@ -491,7 +493,7 @@ def create_large_document():
     # CHAPTER 9: SCA DIRECTORY
     # ----------------------------------------------------
     add_heading_1("Chapter 9: State Channelizing Agency (SCA) Directory Across 36 States & UTs")
-    add_body("State Channelizing Agencies (SCAs) act as the statutory on-ground implementation arms of NSFDC, NBCFDC, and NSKFDC. SamriddhiAI directly connects citizen applications to the verified nodal corporations below:")
+    add_body("State Channelizing Agencies (SCAs) act as the statutory on-ground implementation arms of NSFDC, NBCFDC, and NSKFDC. BHUSEWA AI directly connects citizen applications to the verified nodal corporations below:")
 
     scas = [
         ("Maharashtra", "Mahatma Phule Backward Class Development Corporation (MPBCDC)", "Mumbai, Pune, Nagpur, Nashik, Aurangabad", "SC & OBC Entrepreneur Loan Disbursement"),
@@ -513,7 +515,7 @@ def create_large_document():
     sca_heads = ["State / UT", "State Channelizing Agency (SCA) Name", "Key District Nodal Offices", "Core Lending Mandate"]
     for idx, h in enumerate(sca_heads):
         tbl_sca.rows[0].cells[idx].paragraphs[0].add_run(h).font.bold = True
-        set_cell_background(tbl_sca.rows[0].cells[idx], "136F38")
+        set_cell_background(tbl_sca.rows[0].cells[idx], "EA580C")
         tbl_sca.rows[0].cells[idx].paragraphs[0].runs[0].font.color.rgb = RGBColor(255, 255, 255)
         tbl_sca.rows[0].cells[idx].paragraphs[0].runs[0].font.size = Pt(8.5)
 
@@ -544,17 +546,16 @@ def create_large_document():
              "• Performance Benchmarks: 100% test pass rate with Vite production builds under 165 kB gzip and sub-300ms evaluation latency.")
 
     add_heading_1("Chapter 12: Societal Impact & Long-Term Roadmap")
-    add_body("By eliminating information barriers and connecting marginalized entrepreneurs directly to concessional credit at 4%–6%, SamriddhiAI generates transformative economic impact:\n"
+    add_body("By eliminating information barriers and connecting marginalized entrepreneurs directly to concessional credit at 4%–6%, BHUSEWA AI generates transformative economic impact:\n"
              "1. Prevents predatory debt accumulation among millions of micro-enterprises.\n"
              "2. Accelerates affirmative entrepreneurship under the national vision of 'Viksit Bharat 2047'.\n"
              "3. Future Roadmap includes DigiLocker 1-click verification, WhatsApp multilingual chatbots, and direct PFMS DBT gateway integration.")
 
     # Save to Desktop
     desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-    docx_output = os.path.join(desktop_path, "SamriddhiAI_Comprehensive_Project_Report_50_Pages.docx")
+    docx_output = os.path.join(desktop_path, "BHUSEWA_Comprehensive_Project_Report_50_Pages.docx")
     doc.save(docx_output)
     print(f"Comprehensive Word document saved successfully to: {docx_output}")
 
 if __name__ == "__main__":
     create_large_document()
-

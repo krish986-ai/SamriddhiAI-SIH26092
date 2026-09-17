@@ -26,7 +26,7 @@ export default function SchemeResults({
   }
 
   if (casteFilter !== 'all') {
-    filteredSchemes = filteredSchemes.filter(s => s.category.includes(casteFilter) || s.category.includes('All'));
+    filteredSchemes = filteredSchemes.filter(s => s.category.includes(casteFilter) || s.category.includes('All') || s.targetBeneficiaries?.includes(casteFilter));
   }
 
   if (sortBy === 'rate') {
@@ -46,15 +46,15 @@ export default function SchemeResults({
   return (
     <div style={{ marginTop: '2.5rem' }}>
       
-      {/* 2-Column myScheme Discovery Layout */}
+      {/* 2-Column Discovery Layout */}
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(260px, 280px) 1fr', gap: '1.75rem', alignItems: 'start' }}>
         
-        {/* Left Column: Official myScheme Sticky Sidebar Filter */}
+        {/* Left Column: Sticky Sidebar Filter */}
         <aside className="gov-card" style={{ padding: '1.25rem', position: 'sticky', top: '90px' }}>
           
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem', borderBottom: '1px solid #f1f5f9', paddingBottom: '0.75rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontWeight: 800, fontSize: '0.98rem', color: '#111827' }}>
-              <Filter size={18} color="#136f38" />
+              <Filter size={18} color="#ea580c" />
               <span>Filter By</span>
             </div>
 
@@ -63,7 +63,7 @@ export default function SchemeResults({
               style={{
                 border: 'none',
                 background: 'transparent',
-                color: '#136f38',
+                color: '#ea580c',
                 fontSize: '0.78rem',
                 fontWeight: 700,
                 cursor: 'pointer',
@@ -84,9 +84,9 @@ export default function SchemeResults({
             </label>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               {[
-                { id: 'all', label: 'All Schemes' },
-                { id: 'central', label: 'Central Ministries & Apex' },
-                { id: 'state', label: 'State Channelizing Agencies' }
+                { id: 'all', label: 'All Schemes (4,770+)' },
+                { id: 'central', label: 'Central Ministries & Apex (NSFDC/MoSJE)' },
+                { id: 'state', label: 'State Channelizing Agencies (SCAs)' }
               ].map(item => (
                 <label key={item.id} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.82rem', color: '#4b5563', cursor: 'pointer' }}>
                   <input
@@ -94,7 +94,7 @@ export default function SchemeResults({
                     name="jurisdiction"
                     checked={selectedType === item.id}
                     onChange={() => setSelectedType(item.id)}
-                    style={{ accentColor: '#136f38' }}
+                    style={{ accentColor: '#ea580c' }}
                   />
                   <span>{item.label}</span>
                 </label>
@@ -121,7 +121,7 @@ export default function SchemeResults({
                     name="caste"
                     checked={casteFilter === item.id}
                     onChange={() => setCasteFilter(item.id)}
-                    style={{ accentColor: '#136f38' }}
+                    style={{ accentColor: '#ea580c' }}
                   />
                   <span>{item.label}</span>
                 </label>
@@ -130,12 +130,12 @@ export default function SchemeResults({
           </div>
 
           {/* Verification Guarantee badge */}
-          <div style={{ background: '#ecfdf5', border: '1px solid #c8e6c9', borderRadius: '8px', padding: '0.75rem', marginTop: '1.5rem', fontSize: '0.75rem', color: '#136f38', lineHeight: 1.4 }}>
+          <div style={{ background: '#fff7ed', border: '1px solid #fed7aa', borderRadius: '8px', padding: '0.75rem', marginTop: '1.5rem', fontSize: '0.75rem', color: '#ea580c', lineHeight: 1.4 }}>
             <div style={{ fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.2rem' }}>
               <ShieldCheck size={14} />
-              <span>Official SIH Assurance</span>
+              <span>Official SIH26092 Assurance</span>
             </div>
-            100% verified against MoSJE guidelines with zero intermediary commission fees.
+            100% verified against MoSJE & NSFDC statutory guidelines with zero intermediary commission fees.
           </div>
 
         </aside>
@@ -149,12 +149,12 @@ export default function SchemeResults({
             <div>
               <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#111827', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span>Matching Government Schemes</span>
-                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#136f38', background: '#e8f5e9', border: '1px solid #c8e6c9', padding: '0.15rem 0.55rem', borderRadius: '9999px' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ea580c', background: '#ffedd5', border: '1px solid #fed7aa', padding: '0.15rem 0.55rem', borderRadius: '9999px' }}>
                   {filteredSchemes.length} Available
                 </span>
               </h2>
               <p style={{ fontSize: '0.8rem', color: '#6b7280', margin: 0 }}>
-                Pre-vetted by SamriddhiAI Logic Engine based on your profile & budget
+                Pre-vetted by BHUSEWA AI Logic Engine based on your profile & budget
               </p>
             </div>
 
@@ -184,12 +184,12 @@ export default function SchemeResults({
 
           </div>
 
-          {/* Schemes Cards Stack (myScheme Exact Card Layout) */}
+          {/* Schemes Cards Stack */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {filteredSchemes.map((scheme) => {
               const isHigh = scheme.matchScore >= 80;
-              const scoreColor = isHigh ? "#136f38" : scheme.matchScore >= 60 ? "#ea580c" : "#6b7280";
-              const scoreBg = isHigh ? "#e8f5e9" : scheme.matchScore >= 60 ? "#fff7ed" : "#f3f4f6";
+              const scoreColor = isHigh ? "#ea580c" : scheme.matchScore >= 60 ? "#f97316" : "#6b7280";
+              const scoreBg = isHigh ? "#fff7ed" : scheme.matchScore >= 60 ? "#fffbeb" : "#f3f4f6";
 
               return (
                 <div
@@ -217,11 +217,11 @@ export default function SchemeResults({
 
                       {/* Tag Badges */}
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap', marginBottom: '0.65rem' }}>
-                        <span className="badge badge-green">
+                        <span className="badge badge-orange">
                           {scheme.category}
                         </span>
                         {scheme.isHighlyRecommended && (
-                          <span className="badge badge-green" style={{ background: '#136f38', color: '#ffffff', border: 'none' }}>
+                          <span className="badge badge-orange" style={{ background: '#ea580c', color: '#ffffff', border: 'none' }}>
                             ★ Recommended Match
                           </span>
                         )}
@@ -268,12 +268,12 @@ export default function SchemeResults({
                     background: '#f8fafc',
                     padding: '0.75rem 1rem',
                     borderRadius: '8px',
-                    border: '1px solid #e5e7eb',
+                    border: '1px solid #fed7aa',
                     marginBottom: '1rem'
                   }}>
                     <div>
                       <div style={{ fontSize: '0.7rem', color: '#6b7280', fontWeight: 600 }}>Concessional Rate</div>
-                      <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#136f38' }}>
+                      <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ea580c' }}>
                         {scheme.concessionalRate}% p.a.
                         <span style={{ fontSize: '0.72rem', color: '#9ca3af', marginLeft: '5px', textDecoration: 'line-through' }}>
                           {scheme.commercialMarketRate}%
@@ -304,13 +304,13 @@ export default function SchemeResults({
                   </div>
 
                   {/* Why You Qualify Strip */}
-                  <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', padding: '0.75rem 0.9rem', borderRadius: '8px', marginBottom: '1rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.78rem', fontWeight: 700, color: '#136f38', marginBottom: '0.3rem' }}>
+                  <div style={{ background: '#fff7ed', border: '1px solid #fed7aa', padding: '0.75rem 0.9rem', borderRadius: '8px', marginBottom: '1rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.78rem', fontWeight: 700, color: '#ea580c', marginBottom: '0.3rem' }}>
                       <CheckCircle size={14} />
                       <span>Why your profile matches:</span>
                     </div>
                     <div style={{ fontSize: '0.78rem', color: '#374151', display: 'flex', flexWrap: 'wrap', gap: '0.5rem 1rem' }}>
-                      {scheme.qualificationReasons.slice(0, 2).map((r, idx) => (
+                      {scheme.qualificationReasons?.slice(0, 2).map((r, idx) => (
                         <span key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
                           • {r}
                         </span>
@@ -327,7 +327,7 @@ export default function SchemeResults({
                         className="btn-secondary"
                         style={{ padding: '0.45rem 0.85rem', fontSize: '0.8rem' }}
                       >
-                        <Calculator size={14} color="#136f38" />
+                        <Calculator size={14} color="#ea580c" />
                         <span>Calculate EMI Savings</span>
                       </button>
 
@@ -343,7 +343,7 @@ export default function SchemeResults({
 
                     <button
                       onClick={() => onSelectScheme(scheme)}
-                      className="btn-gov-green"
+                      className="btn-gov-orange"
                       style={{ padding: '0.5rem 1.25rem', fontSize: '0.84rem' }}
                     >
                       <span>View Details & Apply</span>

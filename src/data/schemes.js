@@ -271,5 +271,46 @@ export const SCHEMES_DATABASE = [
       "State Sanitation Corporations"
     ],
     tags: ["Green Enterprise", "Mechanized Sanitation", "Low 4% Rate", "Subsidized"]
+  },
+  {
+    id: "mosje-educational-loan",
+    title: "Educational Loan Scheme (ELAS) - Ministry of Social Justice",
+    category: "Higher & Professional Education Concessional Loan",
+    ministry: "Ministry of Social Justice and Empowerment",
+    nodalAgency: "NSFDC / NBCFDC / State Channelizing Agencies",
+    targetBeneficiaries: ["SC", "ST", "OBC"],
+    targetGenders: ["All", "Male", "Female"],
+    maxLoanAmount: 2000000, // ₹20 Lakhs for India / Abroad
+    minLoanAmount: 100000,
+    concessionalRate: 4.0, // 4% p.a. for women, 4.5% for others
+    commercialMarketRate: 11.5,
+    tenureYears: 5,
+    subsidyPercentage: 20,
+    eligibleSectors: ["Education/Technical", "Services", "Higher Studies"],
+    incomeLimitUrban: 300000,
+    incomeLimitRural: 300000,
+    minAge: 17,
+    maxAge: 35,
+    description: "Concessional education loan scheme under the Ministry of Social Justice & Empowerment providing up to ₹20 Lakhs for professional, technical, and higher education in India and abroad at subsidized 4%–4.5% interest.",
+    keyBenefits: [
+      "Subsidized 4% interest rate for female students (4.5% for male)",
+      "Covers 100% course tuition fees, books, equipment, and boarding",
+      "Moratorium period of Course Duration + 1 full year before repayment begins"
+    ],
+    requiredDocuments: [
+      "Caste Certificate (SC/ST/OBC)",
+      "Admission Letter / Offer from recognized University / College",
+      "Fee structure signed by institute authorities",
+      "10th/12th/Graduation Marksheets",
+      "Income Certificate of parents/guardian",
+      "Aadhaar Card and Bank Account details"
+    ],
+    channelPartners: [
+      "State Channelizing Agencies (SCAs)",
+      "Public Sector Banks",
+      "Nationalized Education Loan Cells"
+    ],
+    tags: ["Education Loan", "MoSJE Scheme", "4% Interest", "Moratorium"]
   }
 ];
+

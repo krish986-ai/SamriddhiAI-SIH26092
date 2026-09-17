@@ -72,7 +72,7 @@ export default function ProfileWizard({
   };
 
   return (
-    <div className="gov-card" style={{ padding: '1.8rem 1.6rem', background: '#ffffff', borderColor: '#cbd5e1' }}>
+    <div className="gov-card" style={{ padding: '1.8rem 1.6rem', background: '#ffffff', borderColor: '#fed7aa' }}>
       
       {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.4rem', flexWrap: 'wrap', gap: '0.8rem', borderBottom: '1px solid #f1f5f9', paddingBottom: '1rem' }}>
@@ -81,11 +81,11 @@ export default function ProfileWizard({
             width: '38px',
             height: '38px',
             borderRadius: '10px',
-            background: '#ecfdf5',
+            background: '#fff7ed',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#15803d'
+            color: '#ea580c'
           }}>
             <Sliders size={20} />
           </div>
@@ -108,7 +108,7 @@ export default function ProfileWizard({
               type="button"
               onClick={() => handleApplyPreset(p.data)}
               className="btn btn-secondary"
-              style={{ padding: '0.35rem 0.65rem', fontSize: '0.75rem', borderRadius: '9999px', borderColor: '#cbd5e1' }}
+              style={{ padding: '0.35rem 0.65rem', fontSize: '0.75rem', borderRadius: '9999px', borderColor: '#fed7aa' }}
               title={`Load profile for ${p.name}`}
             >
               <Award size={13} color="#ea580c" />
@@ -138,13 +138,13 @@ export default function ProfileWizard({
         <div className="form-group">
           <label className="form-label" style={{ display: 'flex', justifyContent: 'space-between' }}>
             <span>{t.casteCategory}</span>
-            <span style={{ color: '#15803d', fontSize: '0.75rem', fontWeight: 600 }}>*SC Concessional Focus</span>
+            <span style={{ color: '#ea580c', fontSize: '0.75rem', fontWeight: 600 }}>*SC Concessional Focus</span>
           </label>
           <select
             value={profile.casteCategory}
             onChange={(e) => onProfileChange("casteCategory", e.target.value)}
             className="form-control"
-            style={{ width: '100%', borderColor: profile.casteCategory === "SC" ? '#15803d' : '#cbd5e1' }}
+            style={{ width: '100%', borderColor: profile.casteCategory === "SC" ? '#ea580c' : '#cbd5e1' }}
           >
             <option value="SC">Scheduled Caste (SC) - Primary Focus</option>
             <option value="ST">Scheduled Tribe (ST)</option>
@@ -172,7 +172,7 @@ export default function ProfileWizard({
         <div className="form-group">
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <label className="form-label">{t.age}</label>
-            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#15803d' }}>{profile.age} Years</span>
+            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ea580c' }}>{profile.age} Years</span>
           </div>
           <input
             type="range"
@@ -180,7 +180,7 @@ export default function ProfileWizard({
             max="65"
             value={profile.age}
             onChange={(e) => onProfileChange("age", parseInt(e.target.value))}
-            style={{ width: '100%', marginTop: '0.5rem' }}
+            style={{ width: '100%', marginTop: '0.5rem', accentColor: '#ea580c' }}
           />
         </div>
 
@@ -195,7 +195,7 @@ export default function ProfileWizard({
             className="form-control"
             style={{ width: '100%' }}
           />
-          <span style={{ fontSize: '0.74rem', color: profile.annualIncome <= 300000 ? '#15803d' : '#b45309', fontWeight: 500 }}>
+          <span style={{ fontSize: '0.74rem', color: profile.annualIncome <= 300000 ? '#ea580c' : '#b45309', fontWeight: 500 }}>
             {profile.annualIncome <= 300000 
               ? "✓ Under ₹3L ceiling (Qualifies for NSFDC & Mahila Samriddhi)" 
               : "Above ₹3L (Stand-Up India & PMEGP eligible)"}
@@ -223,7 +223,7 @@ export default function ProfileWizard({
         <div className="form-group">
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <label className="form-label">{t.loanRequired}</label>
-            <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#15803d' }}>
+            <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#ea580c' }}>
               ₹{(profile.loanRequired).toLocaleString('en-IN')}
               {profile.loanRequired >= 100000 && ` (${(profile.loanRequired / 100000).toFixed(1)} Lakhs)`}
             </span>
@@ -235,7 +235,7 @@ export default function ProfileWizard({
             step="20000"
             value={profile.loanRequired}
             onChange={(e) => onProfileChange("loanRequired", parseInt(e.target.value))}
-            style={{ width: '100%', marginTop: '0.5rem' }}
+            style={{ width: '100%', marginTop: '0.5rem', accentColor: '#ea580c' }}
           />
         </div>
 
@@ -269,7 +269,7 @@ export default function ProfileWizard({
                 type="checkbox"
                 checked={profile.hasCasteCertificate}
                 onChange={(e) => onProfileChange("hasCasteCertificate", e.target.checked)}
-                style={{ width: '16px', height: '16px', accentColor: '#15803d' }}
+                style={{ width: '16px', height: '16px', accentColor: '#ea580c' }}
               />
               <span>{t.hasCasteCertificate}</span>
             </label>
@@ -279,7 +279,7 @@ export default function ProfileWizard({
                 type="checkbox"
                 checked={profile.isRural}
                 onChange={(e) => onProfileChange("isRural", e.target.checked)}
-                style={{ width: '16px', height: '16px', accentColor: '#15803d' }}
+                style={{ width: '16px', height: '16px', accentColor: '#ea580c' }}
               />
               <span>Rural Enterprise (Eligible for 35% PMEGP subsidy)</span>
             </label>
@@ -293,7 +293,7 @@ export default function ProfileWizard({
         <button
           type="button"
           onClick={onRunMatch}
-          className="btn btn-gov-green"
+          className="btn btn-gov-orange"
           style={{ padding: '0.75rem 2rem', fontSize: '0.95rem' }}
         >
           <Sparkles size={18} />

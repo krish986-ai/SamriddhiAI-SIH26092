@@ -1,6 +1,6 @@
 export const TRANSLATIONS = {
   en: {
-    appTitle: "AI-Driven Scheme Matching Platform",
+    appTitle: "BHUSEWA AI - AI-Driven Scheme Matching Platform",
     subTitle: "Bridging SC & Marginalised Entrepreneurs to Concessional Credit & Channel Partners",
     teamBadge: "SIH 2026 | Team Innovision (SIH2026084)",
     switchViewUser: "Beneficiary View",
@@ -57,7 +57,8 @@ export const TRANSLATIONS = {
     stepDisbursed: "Direct Benefit Disbursement"
   },
   hi: {
-    appTitle: "एआई-संचालित योजना मिलान मंच",
+    appTitle: "भूसेवा एआई - एआई-संचालित योजना मिलान मंच",
+
     subTitle: "अनुसूचित जाति एवं वंचित उद्यमियों को रियायती ऋण और चैनल भागीदारों से जोड़ना",
     teamBadge: "एसआईएच 2026 | टीम इनोविज़न (SIH2026084)",
     switchViewUser: "लाभार्थी दृश्य",
@@ -114,7 +115,8 @@ export const TRANSLATIONS = {
     stepDisbursed: "खाते में राशि का वितरण"
   },
   mr: {
-    appTitle: "एआय-आधारित योजना जुळणी मंच",
+    appTitle: "भूसेवा एआय - एआय-आधारित योजना जुळणी मंच",
+
     subTitle: "मागासवर्गीय उद्योजकांना सवलतीच्या दरातील कर्ज आणि चॅनल पार्टनर्सशी जोडणे",
     teamBadge: "एसआयएच २०२६ | टीम इनोव्हिजन (SIH2026084)",
     switchViewUser: "लाभार्थी दृश्य",
@@ -171,7 +173,8 @@ export const TRANSLATIONS = {
     stepDisbursed: "खात्यात थेट निधी वाटप"
   },
   ta: {
-    appTitle: "AI-அடிப்படையிலான திட்டப் பொருத்த தளம்",
+    appTitle: "பூசேவா AI - AI-அடிப்படையிலான திட்டப் பொருத்த தளம்",
+
     subTitle: "ஒடுக்கப்பட்ட தொழில்முனைவோருக்கு சலுகைக் கடன் மற்றும் முகமைகளை இணைத்தல்",
     teamBadge: "SIH 2026 | டீம் இன்னோவிஷன் (SIH2026084)",
     switchViewUser: "பயனாளர் பார்வை",

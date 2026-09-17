@@ -6,10 +6,10 @@ import { MapPin, Phone, Mail, Clock, Building2, Search, ArrowUpRight, CheckCircl
 import { CHANNEL_PARTNERS } from '../data/channelPartners';
 import { TRANSLATIONS } from '../data/translations';
 
-// Custom glowing HTML marker icon for Leaflet in myScheme theme
+// Custom glowing HTML marker icon for Leaflet in BHUSEWA theme
 const createCustomIcon = (type) => {
   const isSCA = type.includes("SCA");
-  const color = isSCA ? "#15803d" : "#1e40af";
+  const color = isSCA ? "#ea580c" : "#1e40af";
 
   return L.divIcon({
     className: 'custom-leaflet-marker',
@@ -21,7 +21,7 @@ const createCustomIcon = (type) => {
         border: 2.5px solid #ffffff;
         border-radius: 50% 50% 50% 0;
         transform: rotate(-45deg);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 10px rgba(234,88,12,0.4);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -76,11 +76,11 @@ export default function GeoLocator({ currentLang, preselectedState, onRouteToPar
             width: '36px',
             height: '36px',
             borderRadius: '10px',
-            background: '#ecfdf5',
+            background: '#fff7ed',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#15803d'
+            color: '#ea580c'
           }}>
             <MapPin size={20} />
           </div>
@@ -92,11 +92,11 @@ export default function GeoLocator({ currentLang, preselectedState, onRouteToPar
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="gov-card" style={{ padding: '1.2rem', marginBottom: '1.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', background: '#ffffff' }}>
+      <div className="gov-card" style={{ padding: '1.2rem', marginBottom: '1.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center', background: '#ffffff', border: '1px solid #fed7aa' }}>
         
         {/* Search Input */}
         <div style={{ flex: 1, minWidth: '240px', position: 'relative' }}>
-          <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
+          <Search size={16} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#ea580c' }} />
           <input
             type="text"
             placeholder={t.searchLocation}
@@ -133,7 +133,7 @@ export default function GeoLocator({ currentLang, preselectedState, onRouteToPar
       <div style={{ display: 'grid', gridTemplateColumns: 'minmax(340px, 1.4fr) minmax(320px, 1fr)', gap: '1.5rem' }}>
         
         {/* Interactive Leaflet Map */}
-        <div className="gov-card" style={{ padding: '0.5rem', height: '540px', position: 'relative', background: '#ffffff' }}>
+        <div className="gov-card" style={{ padding: '0.5rem', height: '540px', position: 'relative', background: '#ffffff', border: '1px solid #fed7aa' }}>
           <MapContainer
             center={[22.5937, 78.9629]}
             zoom={5}
@@ -152,7 +152,7 @@ export default function GeoLocator({ currentLang, preselectedState, onRouteToPar
               >
                 <Popup>
                   <div style={{ maxWidth: '240px', padding: '0.2rem' }}>
-                    <div style={{ fontSize: '0.7rem', color: '#15803d', fontWeight: 700, textTransform: 'uppercase' }}>
+                    <div style={{ fontSize: '0.7rem', color: '#ea580c', fontWeight: 700, textTransform: 'uppercase' }}>
                       {p.type}
                     </div>
                     <div style={{ fontSize: '0.92rem', fontWeight: 700, margin: '0.2rem 0 0.4rem', color: '#0f172a' }}>
@@ -161,7 +161,7 @@ export default function GeoLocator({ currentLang, preselectedState, onRouteToPar
                     <div style={{ fontSize: '0.78rem', color: '#475569', marginBottom: '0.4rem' }}>
                       {p.address}
                     </div>
-                    <div style={{ fontSize: '0.78rem', color: '#15803d', fontWeight: 600 }}>
+                    <div style={{ fontSize: '0.78rem', color: '#ea580c', fontWeight: 600 }}>
                       📞 {p.phone}
                     </div>
                   </div>
@@ -182,15 +182,15 @@ export default function GeoLocator({ currentLang, preselectedState, onRouteToPar
                 className="gov-card"
                 style={{
                   padding: '1.2rem',
-                  border: isRouted ? '2px solid #15803d' : '1px solid #e2e8f0',
-                  background: isRouted ? '#f0fdf4' : '#ffffff'
+                  border: isRouted ? '2px solid #ea580c' : '1px solid #fed7aa',
+                  background: isRouted ? '#fff7ed' : '#ffffff'
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.4rem' }}>
-                  <span className="badge badge-green" style={{ fontSize: '0.7rem' }}>
+                  <span className="badge badge-orange" style={{ fontSize: '0.7rem' }}>
                     {partner.type}
                   </span>
-                  <span style={{ fontSize: '0.78rem', color: '#15803d', fontWeight: 700 }}>
+                  <span style={{ fontSize: '0.78rem', color: '#ea580c', fontWeight: 700 }}>
                     ★ {partner.rating} / 5.0
                   </span>
                 </div>
@@ -205,22 +205,22 @@ export default function GeoLocator({ currentLang, preselectedState, onRouteToPar
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', fontSize: '0.78rem', color: '#64748b', marginBottom: '0.9rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                    <Phone size={13} color="#15803d" />
+                    <Phone size={13} color="#ea580c" />
                     <span>{partner.phone} ({partner.contactPerson})</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                    <Mail size={13} color="#15803d" />
+                    <Mail size={13} color="#ea580c" />
                     <span>{partner.email}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                    <Clock size={13} color="#15803d" />
+                    <Clock size={13} color="#ea580c" />
                     <span>{partner.workingHours} (Avg. {partner.avgDisbursementDays} days turnaround)</span>
                   </div>
                 </div>
 
                 <button
                   onClick={() => handleRoute(partner)}
-                  className={`btn ${isRouted ? 'btn-success' : 'btn-outline-green'}`}
+                  className={`btn ${isRouted ? 'btn-gov-orange' : 'btn-outline-orange'}`}
                   style={{ width: '100%', fontSize: '0.82rem', padding: '0.5rem' }}
                 >
                   {isRouted ? (

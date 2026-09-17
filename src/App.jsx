@@ -27,14 +27,14 @@ export default function App() {
   const [isAccessibilityOpen, setIsAccessibilityOpen] = useState(false);
 
   // Global GIGW Accessibility & Contrast State
-  const [contrastMode, setContrastMode] = useState(() => localStorage.getItem('samriddhi_contrast') || 'default');
-  const [fontSize, setFontSize] = useState(() => parseInt(localStorage.getItem('samriddhi_font_size') || '100'));
+  const [contrastMode, setContrastMode] = useState(() => localStorage.getItem('bhusewa_contrast') || 'default');
+  const [fontSize, setFontSize] = useState(() => parseInt(localStorage.getItem('bhusewa_font_size') || '100'));
 
   // Toggle Dark/Light Mode
   const handleToggleTheme = () => {
     const nextMode = contrastMode === 'dark' ? 'default' : 'dark';
     setContrastMode(nextMode);
-    localStorage.setItem('samriddhi_contrast', nextMode);
+    localStorage.setItem('bhusewa_contrast', nextMode);
   };
 
   // Sync Contrast Mode with body classes
@@ -48,13 +48,13 @@ export default function App() {
     } else if (contrastMode === 'high-white-black') {
       root.classList.add('theme-white-black');
     }
-    localStorage.setItem('samriddhi_contrast', contrastMode);
+    localStorage.setItem('bhusewa_contrast', contrastMode);
   }, [contrastMode]);
 
   // Sync Font Size
   useEffect(() => {
     document.documentElement.style.fontSize = `${fontSize}%`;
-    localStorage.setItem('samriddhi_font_size', fontSize.toString());
+    localStorage.setItem('bhusewa_font_size', fontSize.toString());
   }, [fontSize]);
 
   // Beneficiary Profile State

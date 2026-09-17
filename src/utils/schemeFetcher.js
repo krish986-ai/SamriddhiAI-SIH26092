@@ -13,14 +13,14 @@ let currentSchemes = [...SCHEMES_DATABASE];
 
 export class GovernmentSchemeSyncEngine {
   constructor() {
-    this.lastSyncTime = localStorage.getItem('samriddhi_last_sync') || new Date().toISOString();
-    this.autoSyncEnabled = localStorage.getItem('samriddhi_auto_sync') === 'true';
+    this.lastSyncTime = localStorage.getItem('bhusewa_last_sync') || new Date().toISOString();
+    this.autoSyncEnabled = localStorage.getItem('bhusewa_auto_sync') === 'true';
     this.syncFrequency = 'daily'; // daily, weekly, hourly
   }
 
   // Get current active schemes list
   static getActiveSchemes() {
-    const cached = localStorage.getItem('samriddhi_ingested_schemes');
+    const cached = localStorage.getItem('bhusewa_ingested_schemes');
     if (cached) {
       try {
         const parsed = JSON.parse(cached);
@@ -37,9 +37,10 @@ export class GovernmentSchemeSyncEngine {
   // Save schemes to persistent storage
   static saveSchemes(schemes) {
     currentSchemes = schemes;
-    localStorage.setItem('samriddhi_ingested_schemes', JSON.stringify(schemes));
-    localStorage.setItem('samriddhi_last_sync', new Date().toISOString());
+    localStorage.setItem('bhusewa_ingested_schemes', JSON.stringify(schemes));
+    localStorage.setItem('bhusewa_last_sync', new Date().toISOString());
   }
+
 
   /**
    * Fetch new schemes from official government endpoints
