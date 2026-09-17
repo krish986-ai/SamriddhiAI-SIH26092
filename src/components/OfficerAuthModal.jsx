@@ -297,7 +297,7 @@ export default function OfficerAuthModal({ isOpen, onClose, onLoginSuccess }) {
             <span>{isSuccess ? "Verified" : "Sign In to Officer Console"}</span>
           </button>
 
-          {/* Security Notice / Hint for Evaluation */}
+          {/* Security Notice */}
           <div style={{
             marginTop: '1.25rem',
             paddingTop: '1rem',
@@ -313,14 +313,11 @@ export default function OfficerAuthModal({ isOpen, onClose, onLoginSuccess }) {
               SCA Officer Access Protocol
             </span>
             <span style={{ 
-              background: '#fff7ed', 
-              color: '#ea580c', 
-              padding: '2px 6px', 
-              borderRadius: '4px', 
-              fontWeight: 600,
-              fontFamily: 'monospace'
+              color: '#64748b', 
+              fontSize: '0.72rem',
+              fontWeight: 500
             }}>
-              Pass: @KK.com112
+              🔒 256-bit Secure Gateway
             </span>
           </div>
         </form>
