@@ -1,0 +1,10 @@
+{
+  "name": "BHUSEWA",
+  "description": "AI-Driven Scheme Matching Platform for Marginalised Entrepreneurs (SIH26092). Bridges SC beneficiaries to concessional credit and State Channelizing Agencies.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

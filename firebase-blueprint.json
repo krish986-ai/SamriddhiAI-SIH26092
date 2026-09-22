@@ -1,0 +1,114 @@
+{
+  "entities": {
+    "Application": {
+      "title": "Beneficiary Application",
+      "description": "Submitted applications for concessional lending under apex corporations (NSFDC, NBCFDC, NSKFDC)",
+      "type": "object",
+      "properties": {
+        "appId": {
+          "type": "string",
+          "description": "Unique statutory tracking ID (e.g. APP-SIH-2026-XXXX)"
+        },
+        "schemeId": {
+          "type": "string",
+          "description": "Unique identifier of the applied government scheme"
+        },
+        "schemeTitle": {
+          "type": "string",
+          "description": "Official title of the scheme"
+        },
+        "applicantName": {
+          "type": "string",
+          "description": "Full name of the beneficiary applicant"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Applicant contact mobile number"
+        },
+        "email": {
+          "type": "string",
+          "description": "Applicant email address"
+        },
+        "gender": {
+          "type": "string",
+          "description": "Applicant gender"
+        },
+        "casteCategory": {
+          "type": "string",
+          "description": "Affirmative action category (SC, ST, OBC, General)"
+        },
+        "annualIncome": {
+          "type": "number",
+          "description": "Verified annual household income in INR"
+        },
+        "incomeSource": {
+          "type": "string",
+          "description": "Primary economic livelihood/sector"
+        },
+        "businessPurpose": {
+          "type": "string",
+          "description": "Intended enterprise or micro-business purpose"
+        },
+        "requestedAmount": {
+          "type": "number",
+          "description": "Requested concessional credit in INR"
+        },
+        "tenureYears": {
+          "type": "number",
+          "description": "Repayment tenure in years"
+        },
+        "state": {
+          "type": "string",
+          "description": "State of residence / enterprise location"
+        },
+        "district": {
+          "type": "string",
+          "description": "District of domicile"
+        },
+        "pincode": {
+          "type": "string",
+          "description": "Postal pincode"
+        },
+        "idType": {
+          "type": "string",
+          "description": "Primary identity document type (aadhaar, voter, ration, jamin_rashid, pan)"
+        },
+        "idNumber": {
+          "type": "string",
+          "description": "Masked or entered identity document number"
+        },
+        "status": {
+          "type": "string",
+          "description": "Lifecycle status: Submitted, SCA Verification, Partner Review, Sanctioned, Disbursed, Rejected"
+        },
+        "submissionDate": {
+          "type": "string",
+          "description": "Formatted submission timestamp"
+        },
+        "channelPartner": {
+          "type": "string",
+          "description": "Designated State Channelizing Agency or bank branch"
+        },
+        "uploadedDocuments": {
+          "type": "object",
+          "description": "Attached dossier metadata for verified documents"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of creation"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last status update"
+        }
+      },
+      "required": ["appId", "schemeTitle", "applicantName", "requestedAmount", "status"]
+    }
+  },
+  "firestore": {
+    "/applications/{applicationId}": {
+      "entity": "Application",
+      "description": "Collection of all beneficiary applications managed across citizen and officer portal"
+    }
+  }
+}

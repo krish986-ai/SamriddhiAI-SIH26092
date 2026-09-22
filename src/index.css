@@ -1,0 +1,673 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-display: 'Plus Jakarta Sans', 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', 'Noto Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Official BHUSEWA Indian Saffron & Warm Orange Color System */
+  --myscheme-green: #ea580c;
+  --myscheme-green-dark: #c2410c;
+  --myscheme-green-light: #f97316;
+  --myscheme-green-tint: #fff7ed;
+  --myscheme-green-border: #fed7aa;
+  
+  --myscheme-orange: #ea580c;
+  --myscheme-orange-dark: #c2410c;
+  --myscheme-orange-light: #f97316;
+  --myscheme-orange-tint: #fff7ed;
+  --myscheme-orange-border: #fed7aa;
+  --myscheme-saffron: #ea580c;
+
+  --myscheme-navy: #1e2238;
+  --myscheme-navy-light: #2c3258;
+  --myscheme-blue: #2563eb;
+  --myscheme-blue-tint: #eff6ff;
+
+  --bg-main: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #fff7ed;
+  --bg-card: #ffffff;
+
+  --border-light: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-active: #ea580c;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 2px 8px -2px rgba(234, 88, 12, 0.08), 0 1px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 10px 25px -5px rgba(234, 88, 12, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1340px;
+  }
+}
+
+/* Official Card */
+.gov-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: all 0.2s ease-in-out;
+}
+
+.gov-card:hover {
+  border-color: #fed7aa;
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Primary Button (Orange Theme) */
+.btn-gov-green,
+.btn-gov-orange {
+  background-color: #ea580c;
+  color: #ffffff !important;
+  border: 1px solid #ea580c;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.25);
+}
+
+.btn-gov-green:hover,
+.btn-gov-orange:hover {
+  background-color: #c2410c;
+  border-color: #c2410c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.86rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-subtle);
+  border-color: #fdba74;
+  color: #ea580c;
+}
+
+.btn-outline-green,
+.btn-outline-orange {
+  background-color: var(--bg-surface);
+  color: #ea580c;
+  border: 1.5px solid #ea580c;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  padding: 0.55rem 1.25rem;
+  font-size: 0.86rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-outline-green:hover,
+.btn-outline-orange:hover {
+  background-color: #fff7ed;
+  border-color: #c2410c;
+}
+
+/* Badges & Chips */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.65rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  line-height: 1.2;
+}
+
+.badge-green,
+.badge-orange,
+.badge-amber {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+}
+
+.badge-outline-green,
+.badge-outline-orange {
+  background: var(--bg-surface);
+  color: #ea580c;
+  border: 1px solid #ea580c;
+}
+
+.badge-blue {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-purple {
+  background: #faf5ff;
+  color: #7e22ce;
+  border: 1px solid #e9d5ff;
+}
+
+/* Form Controls */
+.form-control {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.88rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control:focus {
+  border-color: #ea580c;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.18);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #fed7aa;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ea580c;
+}
+
+/* Pulse animation for live indicators */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.live-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ea580c;
+  display: inline-block;
+  animation: pulse-dot 1.8s infinite ease-in-out;
+}
+
+/* Category card styling */
+.category-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1rem 0.85rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-card:hover {
+  border-color: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.15);
+}
+
+.category-card.active {
+  border-color: #ea580c;
+  background-color: #fff7ed;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.18);
+}
+
+/* Floating AI Assistant Button Glow Pulse */
+@keyframes assistantPulse {
+  0% {
+    box-shadow: 0 10px 30px rgba(234, 88, 12, 0.5), 0 0 0 0 rgba(249, 115, 22, 0.6);
+  }
+  70% {
+    box-shadow: 0 12px 35px rgba(234, 88, 12, 0.6), 0 0 0 12px rgba(249, 115, 22, 0);
+  }
+  100% {
+    box-shadow: 0 10px 30px rgba(234, 88, 12, 0.5), 0 0 0 0 rgba(249, 115, 22, 0);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   GIGW Accessibility Themes & High-Performance Dark Mode
+   ========================================================================== */
+
+/* 1. DARK THEME (Ultra-Clean, High-Contrast Slate & Warm Orange Palette) */
+body.theme-dark {
+  --bg-main: #0b1120;
+  --bg-surface: #1e293b;
+  --bg-subtle: #131f37;
+  --bg-card: #1e293b;
+  --border-light: #334155;
+  --border-medium: #475569;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --myscheme-green: #f97316;
+  --myscheme-green-dark: #ea580c;
+  --myscheme-green-tint: rgba(249, 115, 22, 0.15);
+  --myscheme-green-border: rgba(249, 115, 22, 0.35);
+  --myscheme-blue-tint: rgba(59, 130, 246, 0.15);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 10px 30px rgba(234, 88, 12, 0.25);
+  background-color: #0b1120 !important;
+  color: #f8fafc !important;
+}
+
+/* Header & Top Bars in Dark Mode */
+body.theme-dark header {
+  background: #0f172a !important;
+  border-bottom-color: #334155 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.theme-dark header img[alt="National Emblem of India"],
+body.theme-dark header img[alt="Digital India"] {
+  filter: brightness(0) invert(1) !important;
+}
+
+body.theme-dark header .brand-logo-text {
+  color: #f8fafc !important;
+}
+
+body.theme-dark header > div:first-child {
+  background: #0b1120 !important;
+  border-bottom-color: #1e293b !important;
+  color: #94a3b8 !important;
+}
+
+body.theme-dark header > div:first-child span {
+  color: #cbd5e1 !important;
+}
+
+body.theme-dark header > div:first-child span[style*="15803d"],
+body.theme-dark header > div:first-child span[style*="ea580c"] {
+  color: #fb923c !important;
+}
+
+body.theme-dark header span[style*="111827"] {
+  color: #f8fafc !important;
+}
+
+body.theme-dark header select {
+  color: #fb923c !important;
+}
+
+body.theme-dark header select option {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+/* Search bar in Dark Mode */
+body.theme-dark header div[style*="background: rgb(248, 250, 252)"],
+body.theme-dark header div[style*="background: #f8fafc"] {
+  background: #1e293b !important;
+  border-color: #475569 !important;
+}
+
+body.theme-dark header input {
+  color: #f8fafc !important;
+}
+
+body.theme-dark header input::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Sub-Navigation Bar in Dark Mode */
+body.theme-dark header > div:last-child {
+  background: #7c2d12 !important;
+  border-top-color: #9a3412 !important;
+}
+
+/* Hero Section in Dark Mode */
+body.theme-dark section {
+  background: #0b1120 !important;
+  border-bottom-color: #1e293b !important;
+}
+
+body.theme-dark section > div[style*="linear-gradient"] {
+  background: linear-gradient(180deg, #0f172a 0%, #0b1120 100%) !important;
+  border-bottom-color: #1e293b !important;
+}
+
+body.theme-dark section > div[style*="padding: 1.75rem 0 1.25rem"] {
+  background: #0b1120 !important;
+}
+
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3,
+body.theme-dark h4 {
+  color: #f8fafc !important;
+}
+
+/* Quote card in dark mode */
+body.theme-dark .hero-quote-card {
+  background: #1e293b !important;
+  border-left-color: #f97316 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.theme-dark .hero-quote-card div:first-child {
+  color: #cbd5e1 !important;
+}
+
+body.theme-dark .hero-quote-card div:last-child {
+  color: #f8fafc !important;
+}
+
+/* Right hero card in dark mode */
+body.theme-dark .hero-right-card {
+  background: #1e293b !important;
+  border-color: #9a3412 !important;
+}
+
+body.theme-dark .hero-highlight-item {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+body.theme-dark .hero-highlight-item strong {
+  color: #f8fafc !important;
+}
+
+/* Hero Stat Cards in Dark Mode */
+body.theme-dark div[style*="background: rgb(232, 245, 233)"],
+body.theme-dark div[style*="background: #e8f5e9"],
+body.theme-dark div[style*="background: #fff7ed"] {
+  background: #2a1b12 !important;
+  border-color: #9a3412 !important;
+}
+
+body.theme-dark div[style*="background: #fff7ed"] div[style*="font-size: 2.2rem"],
+body.theme-dark div[style*="background: #e8f5e9"] div[style*="font-size: 2.2rem"] {
+  color: #fb923c !important;
+}
+
+body.theme-dark div[style*="background: #fff7ed"] div[style*="font-size: 0.9rem"],
+body.theme-dark div[style*="background: #e8f5e9"] div[style*="font-size: 0.9rem"] {
+  color: #fdba74 !important;
+}
+
+body.theme-dark div[style*="background: #fff7ed"] div[style*="font-size: 0.76rem"],
+body.theme-dark div[style*="background: #e8f5e9"] div[style*="font-size: 0.76rem"] {
+  color: #fed7aa !important;
+}
+
+body.theme-dark div[style*="background: #fff7ed"] div[style*="border-radius: 50%"],
+body.theme-dark div[style*="background: #e8f5e9"] div[style*="border-radius: 50%"] {
+  background: #0f172a !important;
+  color: #fb923c !important;
+}
+
+/* Cards & Surfaces in Dark Mode */
+body.theme-dark .gov-card {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+body.theme-dark .category-card {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+body.theme-dark .category-card:hover {
+  border-color: #fb923c !important;
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.25) !important;
+}
+
+body.theme-dark .category-card.active {
+  background: rgba(249, 115, 22, 0.15) !important;
+  border-color: #fb923c !important;
+}
+
+body.theme-dark .category-card span[style*="111827"] {
+  color: #f8fafc !important;
+}
+
+body.theme-dark #how-it-works {
+  background: #131f37 !important;
+  border-color: #334155 !important;
+}
+
+body.theme-dark #how-it-works p {
+  color: #cbd5e1 !important;
+}
+
+/* Form inputs & controls in Dark Mode */
+body.theme-dark input,
+body.theme-dark select,
+body.theme-dark textarea,
+body.theme-dark .form-control {
+  background-color: #0b1329 !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+body.theme-dark input:focus,
+body.theme-dark select:focus,
+body.theme-dark textarea:focus,
+body.theme-dark .form-control:focus {
+  border-color: #fb923c !important;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25) !important;
+}
+
+body.theme-dark label {
+  color: #cbd5e1 !important;
+}
+
+/* Modal Dialogs in Dark Mode */
+body.theme-dark .modal-content,
+body.theme-dark div[style*="background: #ffffff"][style*="max-width: 840px"],
+body.theme-dark div[style*="background: #ffffff"][style*="max-width: 780px"],
+body.theme-dark div[style*="background: #ffffff"][style*="max-width: 620px"] {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+body.theme-dark div[style*="background: #f8fafc"] {
+  background: #131f37 !important;
+  border-color: #334155 !important;
+}
+
+/* 2. YELLOW ON BLACK (High Contrast) */
+body.theme-yellow-black {
+  --bg-main: #000000;
+  --bg-surface: #000000;
+  --bg-subtle: #111111;
+  --bg-card: #000000;
+  --text-primary: #facc15;
+  --text-secondary: #fef08a;
+  --text-muted: #fef9c3;
+  --border-light: #facc15;
+  --border-medium: #facc15;
+  background-color: #000000 !important;
+  color: #facc15 !important;
+}
+
+body.theme-yellow-black header,
+body.theme-yellow-black .gov-card,
+body.theme-yellow-black .category-card,
+body.theme-yellow-black section,
+body.theme-yellow-black aside,
+body.theme-yellow-black footer {
+  background-color: #000000 !important;
+  color: #facc15 !important;
+  border-color: #facc15 !important;
+}
+
+body.theme-yellow-black h1,
+body.theme-yellow-black h2,
+body.theme-yellow-black h3,
+body.theme-yellow-black h4,
+body.theme-yellow-black span,
+body.theme-yellow-black p,
+body.theme-yellow-black strong {
+  color: #facc15 !important;
+}
+
+body.theme-yellow-black button,
+body.theme-yellow-black input,
+body.theme-yellow-black select {
+  background-color: #000000 !important;
+  color: #facc15 !important;
+  border: 1.5px solid #facc15 !important;
+}
+
+/* 3. WHITE ON BLACK (High Contrast) */
+body.theme-white-black {
+  --bg-main: #000000;
+  --bg-surface: #000000;
+  --bg-subtle: #111111;
+  --bg-card: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #ffffff;
+  --text-muted: #e2e8f0;
+  --border-light: #ffffff;
+  --border-medium: #ffffff;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+body.theme-white-black header,
+body.theme-white-black .gov-card,
+body.theme-white-black .category-card,
+body.theme-white-black section,
+body.theme-white-black aside,
+body.theme-white-black footer {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+body.theme-white-black h1,
+body.theme-white-black h2,
+body.theme-white-black h3,
+body.theme-white-black h4,
+body.theme-white-black span,
+body.theme-white-black p,
+body.theme-white-black strong {
+  color: #ffffff !important;
+}
+
+body.theme-white-black button,
+body.theme-white-black input,
+body.theme-white-black select {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #ffffff !important;
+}
+
+/* 4. Highlight Links */
+body.highlight-links-active a,
+body.highlight-links-active button {
+  text-decoration: underline !important;
+  outline: 2px dashed #f97316 !important;
+  outline-offset: 3px !important;
+}
+
+/* 5. Dyslexia Friendly Font */
+body.dyslexia-font-active,
+body.dyslexia-font-active * {
+  font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.12em !important;
+  line-height: 1.8 !important;
+}
+
+/* 6. Large High-Contrast Cursor */
+body.large-cursor-active,
+body.large-cursor-active * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='%23ffffff' stroke='%23000000' stroke-width='2'%3E%3Cpath d='M3 3l7 18 3-7 7-3L3 3z'/%3E%3C/svg%3E"), auto !important;
+}
